@@ -1,4 +1,4 @@
-
+gitpod workspace create https://github.com/gitpod-io/empty --open
 # English Instructions
 
 ## Notion Flow
