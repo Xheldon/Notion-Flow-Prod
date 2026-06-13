@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notion Flow — 把 Notion 文章一键发布到 GitHub 博客</title>
+  <meta name="description" content="Notion Flow 是一款非侵入、纯前端的浏览器插件：在 Notion 写好文章，一键以 Markdown 同步到你的 GitHub 博客，自动转存图片到 OSS，无需手动处理 Front Matter、图片引用与 Markdown 格式。" />
+  <link rel="icon" href="assets/favicon.ico" />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <meta property="og:title" content="Notion Flow — 把 Notion 文章一键发布到 GitHub 博客" />
+  <meta property="og:description" content="在 Notion 写作，一键发布到 GitHub Pages 博客，自动转存图片到 OSS。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/index.png" />
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="./">
+        <img src="assets/icon.png" alt="Notion Flow" />
+        <span>Notion Flow</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#features">功能</a>
+        <a href="#how">如何使用</a>
+        <a href="https://notion-flow.xheldon.com/" target="_blank" rel="noopener">文档</a>
+        <a href="https://github.com/Xheldon/Notion-Flow-Prod/discussions" target="_blank" rel="noopener">问题反馈</a>
+        <a class="lang" href="en/">EN</a>
+        <a class="nav-cta" href="#install">安装</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <h1>在 Notion 写作，一键发布到 GitHub 博客</h1>
+          <p class="lead">Notion Flow 是一款<strong>非侵入、纯前端</strong>的浏览器插件。把你在 Notion 写好的文章，一键以 Markdown 同步到 GitHub 仓库；图片自动转存到 OSS，Front Matter、图片引用、Markdown 格式都在后台像魔法一样处理好。</p>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/notion-flow/mcabmofnikepdpecekdlildkmffpmokh" target="_blank" rel="noopener">Chrome 安装</a>
+            <a class="btn" href="https://microsoftedge.microsoft.com/addons/detail/notion-flow/pppmbeffejpbfgdmhmgmlppefaeaimfh" target="_blank" rel="noopener">Edge 安装</a>
+            <a class="btn" href="https://notion-flow.xheldon.com/" target="_blank" rel="noopener">入门指南</a>
+          </div>
+          <div class="badges">
+            <a href="https://www.producthunt.com/posts/notion-flow" target="_blank" rel="noopener">
+              <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=446441&theme=light" alt="Notion Flow on Product Hunt" style="width:230px;height:50px" width="230" height="50" loading="lazy" />
+            </a>
+          </div>
+        </div>
+        <div class="hero-shot">
+          <img src="assets/index.png" alt="Notion Flow 侧边栏界面" loading="eager" />
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="features">
+      <div class="container">
+        <div class="section-title">
+          <h2>核心功能</h2>
+          <p>从写作导航到一键发布，覆盖基于 GitHub 的博客工作流。</p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-media"><img src="assets/index.png" alt="显示 Notion 分级标题" loading="lazy" /></div>
+          <div>
+            <h3>显示 Notion 分级标题</h3>
+            <p>在浏览器右侧边栏实时展示当前 Notion 页面的分级目录，点击即可快速跳转，长文写作导航更顺手。</p>
+          </div>
+        </div>
+
+        <div class="feature reverse">
+          <div class="feature-media"><img src="assets/index2.png" alt="一键发布到 GitHub" loading="lazy" /></div>
+          <div>
+            <h3>一键发布到 GitHub</h3>
+            <p>把 Notion 页面以 Markdown 格式同步到你的 GitHub 仓库指定目录。图片引用、Front Matter、Markdown 格式都自动处理，适配 Jekyll、VitePress、Hexo 等基于 GitHub 的博客系统。</p>
+          </div>
+        </div>
+
+        <div class="feature">
+          <div class="feature-media"><img src="assets/index4.png" alt="自定义模块转换" loading="lazy" /></div>
+          <div>
+            <h3>自定义模块转换</h3>
+            <p>不满意默认的 Notion → Markdown 规则？只需编写一个转换函数，即可把 Bookmark、Callout、Video 等非标准模块转换成你博客需要的格式。</p>
+          </div>
+        </div>
+
+        <div class="feature reverse">
+          <div class="feature-media"><img src="assets/index5.png" alt="多种图片上传服务支持" loading="lazy" /></div>
+          <div>
+            <h3>多种图床支持</h3>
+            <p>内置腾讯云 COS、阿里云 OSS、AWS S3，并支持兼容 S3 API 的自建服务（如 Cloudflare R2、MinIO）。配合 CDN 自动转存 Notion 中的图片与视频。</p>
+          </div>
+        </div>
+
+        <div class="feature">
+          <div class="feature-media"><img src="assets/index6.png" alt="灵活的路径配置" loading="lazy" /></div>
+          <div>
+            <h3>灵活的路径配置</h3>
+            <p>文件上传路径与图片路径支持引用 Notion Page Properties，以及 <code>{{YYYY}}</code>、<code>{{MM}}</code>、<code>{{name}}</code> 等变量。一次配置，长期复用。</p>
+          </div>
+        </div>
+
+        <div class="feature reverse">
+          <div class="feature-media"><img src="assets/index3.png" alt="AIGC 支持" loading="lazy" /></div>
+          <div>
+            <span class="tag">开发中</span>
+            <h3>AIGC 支持</h3>
+            <p>通过 OpenAI / Azure OpenAI API 处理选区、替换 Notion 文本块，作为昂贵 Notion AI 的平替，自由度更高、成本更低。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="why">
+      <div class="container">
+        <div class="section-title">
+          <h2>为什么选择 Notion Flow</h2>
+          <p>把繁琐的发布细节交给插件，你只管在 Notion 里专注写作。</p>
+        </div>
+        <div class="cards">
+          <div class="card">
+            <div class="ic">🪄</div>
+            <h3>自动化繁琐细节</h3>
+            <p>图片转存、Front Matter、Markdown 格式、链接处理，全部在后台自动完成，无需手动搬运。</p>
+          </div>
+          <div class="card">
+            <div class="ic">🔒</div>
+            <h3>你的数据你做主</h3>
+            <p>纯前端、非侵入。Token 与密钥只保存在本地浏览器，不经过任何第三方服务器。</p>
+          </div>
+          <div class="card">
+            <div class="ic">🧭</div>
+            <h3>稳定可靠（v0.4.5）</h3>
+            <p>分步发布进度、清晰的错误报告与可复制日志，配置页「测试连接」一键校验 Notion / GitHub / OSS。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how" class="features">
+      <div class="container">
+        <div class="section-title">
+          <h2>四步开始使用</h2>
+          <p>一次性配置完成后，之后每篇文章都只需点一下「发布」。</p>
+        </div>
+        <div class="steps">
+          <div class="step"><h3>安装插件</h3><p>从 Chrome 应用商店或 Edge 加载项安装。</p></div>
+          <div class="step"><h3>填写配置</h3><p>填入 Notion Token、GitHub 仓库与 OSS，点「测试连接」校验。</p></div>
+          <div class="step"><h3>打开侧栏</h3><p>在 Notion 页面点击插件图标，唤出右侧边栏。</p></div>
+          <div class="step"><h3>一键发布</h3><p>点「发布到 GitHub」，文章即刻以 Markdown 同步。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="install" class="cta-band">
+      <div class="container">
+        <h2>现在就开始</h2>
+        <p class="muted">支持 Chrome 114+ 与 Edge（建议使用 Chrome，Edge 的侧边栏接口存在已知问题）。</p>
+        <div class="btn-row" style="margin-top:18px">
+          <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/notion-flow/mcabmofnikepdpecekdlildkmffpmokh" target="_blank" rel="noopener">Chrome 安装</a>
+          <a class="btn" href="https://microsoftedge.microsoft.com/addons/detail/notion-flow/pppmbeffejpbfgdmhmgmlppefaeaimfh" target="_blank" rel="noopener">Edge 安装</a>
+          <a class="btn" href="https://www.youtube.com/watch?v=aPitTcsruhM" target="_blank" rel="noopener">观看演示</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand" style="margin-bottom:10px">
+            <img src="assets/icon.png" alt="" style="width:24px;height:24px;border-radius:6px" />
+            <span>Notion Flow</span>
+          </div>
+          <p class="muted" style="margin:0">把 Notion 内容「流动」到 GitHub。</p>
+        </div>
+        <div>
+          <h4>产品</h4>
+          <a href="https://notion-flow.xheldon.com/" target="_blank" rel="noopener">文档</a>
+          <a href="https://notion-flow.xheldon.com/blog" target="_blank" rel="noopener">更新日志</a>
+          <a href="https://github.com/Xheldon/Notion-Flow-Prod/releases" target="_blank" rel="noopener">下载（Release）</a>
+        </div>
+        <div>
+          <h4>社区</h4>
+          <a href="https://github.com/Xheldon/Notion-Flow-Prod/discussions" target="_blank" rel="noopener">讨论</a>
+          <a href="https://github.com/Xheldon/Notion-Flow-Prod/issues" target="_blank" rel="noopener">问题反馈</a>
+          <a href="https://t.me/+AN6Y9ngg8g9kNmVl" target="_blank" rel="noopener">Telegram</a>
+          <a href="https://twitter.com/real_notionflow" target="_blank" rel="noopener">Twitter</a>
+        </div>
+        <div>
+          <h4>作者</h4>
+          <a href="https://www.xheldon.com" target="_blank" rel="noopener">博客</a>
+          <a href="https://github.com/Xheldon" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://paypal.me/xheldoncao" target="_blank" rel="noopener">支持作者</a>
+        </div>
+      </div>
+      <div class="copyright">© <span id="y">2026</span> Xheldon · Notion Flow ·
+        <a href="en/">English</a>
+      </div>
+    </div>
+  </footer>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>

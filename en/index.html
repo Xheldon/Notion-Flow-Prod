@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notion Flow — Publish your Notion articles to a GitHub blog</title>
+  <meta name="description" content="Notion Flow is a non-intrusive, pure-frontend browser extension: write in Notion and publish to your GitHub blog as Markdown with one click. Images are auto-uploaded to OSS; Front Matter, image links and Markdown formatting are handled for you." />
+  <link rel="icon" href="../assets/favicon.ico" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <meta property="og:title" content="Notion Flow — Publish your Notion articles to a GitHub blog" />
+  <meta property="og:description" content="Write in Notion, publish to a GitHub Pages blog in one click, with images auto-hosted on OSS." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="../assets/index.png" />
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="./">
+        <img src="../assets/icon.png" alt="Notion Flow" />
+        <span>Notion Flow</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#how">How it works</a>
+        <a href="https://notion-flow.xheldon.com/en/" target="_blank" rel="noopener">Docs</a>
+        <a href="https://github.com/Xheldon/Notion-Flow-Prod/discussions" target="_blank" rel="noopener">Feedback</a>
+        <a class="lang" href="../">中文</a>
+        <a class="nav-cta" href="#install">Install</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <h1>Write in Notion, publish to your GitHub blog in one click</h1>
+          <p class="lead">Notion Flow is a <strong>non-intrusive, pure-frontend</strong> browser extension. Sync the article you wrote in Notion to your GitHub repo as Markdown; images are auto-hosted on OSS, and Front Matter, image links and Markdown formatting are handled for you in the background.</p>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/notion-flow/mcabmofnikepdpecekdlildkmffpmokh" target="_blank" rel="noopener">Add to Chrome</a>
+            <a class="btn" href="https://microsoftedge.microsoft.com/addons/detail/notion-flow/pppmbeffejpbfgdmhmgmlppefaeaimfh" target="_blank" rel="noopener">Add to Edge</a>
+            <a class="btn" href="https://notion-flow.xheldon.com/en/" target="_blank" rel="noopener">Get started</a>
+          </div>
+          <div class="badges">
+            <a href="https://www.producthunt.com/posts/notion-flow" target="_blank" rel="noopener">
+              <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=446441&theme=light" alt="Notion Flow on Product Hunt" style="width:230px;height:50px" width="230" height="50" loading="lazy" />
+            </a>
+          </div>
+        </div>
+        <div class="hero-shot">
+          <img src="../assets/index.png" alt="Notion Flow side panel" loading="eager" />
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="features">
+      <div class="container">
+        <div class="section-title">
+          <h2>Core features</h2>
+          <p>From in-page navigation to one-click publishing — built for GitHub-based blog workflows.</p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-media"><img src="../assets/index.png" alt="Display Notion table of contents" loading="lazy" /></div>
+          <div>
+            <h3>Display Notion headings</h3>
+            <p>Show the table of contents of the current Notion page in the browser side panel in real time. Click to jump — long-form writing navigation made easy.</p>
+          </div>
+        </div>
+
+        <div class="feature reverse">
+          <div class="feature-media"><img src="../assets/index2.png" alt="Publish to GitHub" loading="lazy" /></div>
+          <div>
+            <h3>Publish to GitHub</h3>
+            <p>Sync a Notion page to a target directory in your GitHub repo as Markdown. Image links, Front Matter and Markdown formatting are handled automatically — works with Jekyll, VitePress, Hexo and other GitHub-based blogs.</p>
+          </div>
+        </div>
+
+        <div class="feature">
+          <div class="feature-media"><img src="../assets/index4.png" alt="Custom module conversion" loading="lazy" /></div>
+          <div>
+            <h3>Custom module conversion</h3>
+            <p>Not happy with the default Notion → Markdown rules? Write a conversion function to turn non-standard blocks like Bookmark, Callout and Video into whatever format your blog needs.</p>
+          </div>
+        </div>
+
+        <div class="feature reverse">
+          <div class="feature-media"><img src="../assets/index5.png" alt="Multiple image hosting services" loading="lazy" /></div>
+          <div>
+            <h3>Multiple image hosts</h3>
+            <p>Built-in support for Tencent COS, Alibaba OSS and AWS S3 — plus any S3-compatible self-hosted service (Cloudflare R2, MinIO). Images and videos from Notion are auto-uploaded and served via your CDN.</p>
+          </div>
+        </div>
+
+        <div class="feature">
+          <div class="feature-media"><img src="../assets/index6.png" alt="Flexible path configuration" loading="lazy" /></div>
+          <div>
+            <h3>Flexible path templates</h3>
+            <p>File and image upload paths can reference Notion Page Properties and variables like <code>{{YYYY}}</code>, <code>{{MM}}</code>, <code>{{name}}</code>. Configure once, reuse forever.</p>
+          </div>
+        </div>
+
+        <div class="feature reverse">
+          <div class="feature-media"><img src="../assets/index3.png" alt="AIGC support" loading="lazy" /></div>
+          <div>
+            <span class="tag">Work in progress</span>
+            <h3>AIGC support</h3>
+            <p>Use the OpenAI / Azure OpenAI API to process selections and replace Notion text blocks — a flexible, lower-cost alternative to the pricey Notion AI.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="why">
+      <div class="container">
+        <div class="section-title">
+          <h2>Why Notion Flow</h2>
+          <p>Let the extension handle the tedious publishing details — you just write in Notion.</p>
+        </div>
+        <div class="cards">
+          <div class="card">
+            <div class="ic">🪄</div>
+            <h3>Tedious details, automated</h3>
+            <p>Image re-hosting, Front Matter, Markdown formatting and link handling all happen automatically — no manual shuffling.</p>
+          </div>
+          <div class="card">
+            <div class="ic">🔒</div>
+            <h3>Your data stays yours</h3>
+            <p>Pure frontend and non-intrusive. Tokens and secrets live only in your local browser — never routed through any third-party server.</p>
+          </div>
+          <div class="card">
+            <div class="ic">🧭</div>
+            <h3>Reliable (v0.4.5)</h3>
+            <p>Step-by-step publish progress, clear error reports with copyable logs, and a one-click "Test connection" for Notion / GitHub / OSS.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how" class="features">
+      <div class="container">
+        <div class="section-title">
+          <h2>Four steps to start</h2>
+          <p>After a one-time setup, every future article is just one click to publish.</p>
+        </div>
+        <div class="steps">
+          <div class="step"><h3>Install</h3><p>From the Chrome Web Store or Edge Add-ons.</p></div>
+          <div class="step"><h3>Configure</h3><p>Enter your Notion token, GitHub repo and OSS, then hit "Test connection".</p></div>
+          <div class="step"><h3>Open the panel</h3><p>Click the extension icon on a Notion page to open the side panel.</p></div>
+          <div class="step"><h3>Publish</h3><p>Hit "Publish to GitHub" and your article syncs as Markdown.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="install" class="cta-band">
+      <div class="container">
+        <h2>Get started now</h2>
+        <p class="muted">Works on Chrome 114+ and Edge (Chrome recommended — Edge's side-panel API has known issues).</p>
+        <div class="btn-row" style="margin-top:18px">
+          <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/notion-flow/mcabmofnikepdpecekdlildkmffpmokh" target="_blank" rel="noopener">Add to Chrome</a>
+          <a class="btn" href="https://microsoftedge.microsoft.com/addons/detail/notion-flow/pppmbeffejpbfgdmhmgmlppefaeaimfh" target="_blank" rel="noopener">Add to Edge</a>
+          <a class="btn" href="https://www.youtube.com/watch?v=aPitTcsruhM" target="_blank" rel="noopener">Watch demo</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand" style="margin-bottom:10px">
+            <img src="../assets/icon.png" alt="" style="width:24px;height:24px;border-radius:6px" />
+            <span>Notion Flow</span>
+          </div>
+          <p class="muted" style="margin:0">Flow your Notion content to GitHub.</p>
+        </div>
+        <div>
+          <h4>Product</h4>
+          <a href="https://notion-flow.xheldon.com/en/" target="_blank" rel="noopener">Docs</a>
+          <a href="https://notion-flow.xheldon.com/en/blog" target="_blank" rel="noopener">Changelog</a>
+          <a href="https://github.com/Xheldon/Notion-Flow-Prod/releases" target="_blank" rel="noopener">Download (Release)</a>
+        </div>
+        <div>
+          <h4>Community</h4>
+          <a href="https://github.com/Xheldon/Notion-Flow-Prod/discussions" target="_blank" rel="noopener">Discussions</a>
+          <a href="https://github.com/Xheldon/Notion-Flow-Prod/issues" target="_blank" rel="noopener">Issues</a>
+          <a href="https://t.me/+AN6Y9ngg8g9kNmVl" target="_blank" rel="noopener">Telegram</a>
+          <a href="https://twitter.com/real_notionflow" target="_blank" rel="noopener">Twitter</a>
+        </div>
+        <div>
+          <h4>Author</h4>
+          <a href="https://www.xheldon.com" target="_blank" rel="noopener">Blog</a>
+          <a href="https://github.com/Xheldon" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://paypal.me/xheldoncao" target="_blank" rel="noopener">Support me</a>
+        </div>
+      </div>
+      <div class="copyright">© <span id="y">2026</span> Xheldon · Notion Flow ·
+        <a href="../">中文</a>
+      </div>
+    </div>
+  </footer>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
