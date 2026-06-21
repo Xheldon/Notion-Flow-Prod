@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AWS S3 · Notion Flow Docs</title>
+<link rel="icon" href="../../../../../../assets/favicon.ico" />
+<link rel="stylesheet" href="../../../../../../assets/styles.css" />
+<link rel="stylesheet" href="../../../../../../assets/docs.css" />
+</head>
+<body class="docs-body">
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="../../../../../../en/index.html"><img src="../../../../../../assets/icon.png" alt="" /><span>Notion Flow</span></a>
+    <nav class="nav-links">
+      <a href="../../../../../../en/index.html#features">Features</a>
+      <a href="./">Docs</a>
+      <a href="https://github.com/Xheldon/Notion-Flow-Prod/discussions" target="_blank" rel="noopener">Feedback</a>
+      <a class="lang" href="../../../../../../docs/">中文</a>
+    </nav>
+  </div>
+</header>
+<div class="docs-shell container">
+  <button class="sb-toggle" aria-label="menu">☰ Docs</button>
+  <nav class="docs-sidebar"><div class="sb-head">Notion Flow Docs</div><ul class="sb-list"><li><a class="sb-link" href="../../../../index.html">Preface</a></li><li class="sb-group"><a class="sb-link sb-cat" href="../../../../basic/index.html">Basic</a><ul class="sb-sub"><li><a class="sb-link" href="../../../../basic/toc.html">Table of Contents</a></li><li><a class="sb-link" href="../../../../basic/shortcuts.html">Quick Operations</a></li></ul></li><li class="sb-group"><a class="sb-link sb-cat" href="../../../index.html">Advanced</a><ul class="sb-sub"><li class="sb-group"><a class="sb-link sb-cat" href="../../index.html">Publish to Github</a><ul class="sb-sub"><li><a class="sb-link" href="../../workflow.html">Overall Process</a></li><li class="sb-group"><a class="sb-link sb-cat" href="../index.html">Before starting</a><ul class="sb-sub"><li><a class="sb-link" href="../notion.html">Notion Configuration</a></li><li><a class="sb-link" href="../github.html">Github Configuration</a></li><li class="sb-group"><a class="sb-link sb-cat" href="./index.html">Image Processing</a><ul class="sb-sub"><li><a class="sb-link" href="./tencentcloud.html">Tencent Cloud COS</a></li><li><a class="sb-link" href="./alicloud.html">Alibaba Cloud OSS</a></li><li><a class="sb-link active" href="./aws.html">AWS S3</a></li><li><a class="sb-link" href="./cdn.html">CDN</a></li></ul></li></ul></li><li><a class="sb-link" href="../../plugin-configuration.html">Configuration of Plugins</a></li><li><a class="sb-link" href="../../module-conversion.html">Module Conversion</a></li></ul></li><li class="sb-group"><a class="sb-link sb-cat" href="../../../ai/index.html">AI</a><ul class="sb-sub"><li><a class="sb-link" href="../../../ai/before-starting.html">WIP</a></li></ul></li><li class="sb-group"><a class="sb-link sb-cat" href="../../../plugin/index.html">Plugins</a><ul class="sb-sub"><li><a class="sb-link" href="../../../plugin/before-starting.html">WIP</a></li></ul></li></ul></li><li><a class="sb-link" href="../../../../faq.html">F&amp;Q</a></li><li><a class="sb-link" href="../../../../about.html">About</a></li></ul></nav>
+  <main class="docs-main">
+    <article class="doc-article">
+      <h1 class="doc-h1">AWS S3</h1>
+      <blockquote>
+<p>Amazon Simple Storage Service (Amazon S3) is an object storage service that offers industry-leading scalability, data availability, security, and performance. Customers of all sizes and industries can store and protect any amount of data for almost any use case, such as data lakes, cloud-native applications, and mobile apps. With cost-effective storage classes and easy-to-use management features, you can optimize costs, organize data, and configure finely-tuned access controls to meet specific business, organizational, and compliance requirements. Visit the official website <a href="https://aws.amazon.com/s3/">AWS S3</a> for more information.</p>
+</blockquote>
+<p>The process of creating a storage bucket in AWS is very simple. Just go to the <a href="https://s3.console.aws.amazon.com/s3/bucket/create">Amazon S3 Create Bucket</a> page, it will automatically help you select the appropriate bucket location, and all you need to fill in is the bucket name, the other options can be left as default. You can manually modify the bucket region, and finally click the create button at the bottom of the page.</p>
+<p><img src="../../../../../../assets/docs-img/docs/oss-token-8.png" alt="Image"></p>
+<p>After that, the page will automatically enter the bucket page. Take note of the bucket name and region information, which will be used later. For example, my bucket name is <code>notion-blog-static</code> and the region is <code>us-west-2</code>:</p>
+<p><img src="../../../../../../assets/docs-img/docs/oss-token-9.png" alt="Image"></p>
+<h2 id="get-accesskey-and-secretkey">Get AccessKey and SecretKey</h2>
+<p>Go to the <a href="https://us-east-1.console.aws.amazon.com/iam/home#/security_credentials/access-key-wizard">AWS Get Key page</a>, and click the button to create an access key.</p>
+<p><img src="../../../../../../assets/docs-img/docs/oss-token-10.png" alt="Image"></p>
+<div class="adm adm-tip">
+<p class="adm-title">Tip</p>
+<p>Notion Flow also supports self-hosted services compatible with the AWS S3 API, such as <a href="https://developers.cloudflare.com/r2/">Cloudflare R2</a>, and others, which offer an additional <code>endpoint</code> configuration compared to the official AWS S3.</p>
+</div>
+
+    </article>
+    <div class="pager"><a class="pager-prev" href="./alicloud.html"><span>← Previous</span><b>Alibaba Cloud OSS</b></a><a class="pager-next" href="./cdn.html"><span>Next →</span><b>CDN</b></a></div>
+  </main>
+</div>
+<footer class="footer"><div class="container">
+    <div class="copyright">© <span id="y">2026</span> Xheldon · Notion Flow</div>
+  </div></footer>
+  <script>document.getElementById('y').textContent=new Date().getFullYear();
+  // 移动端侧边栏
+  var t=document.querySelector('.sb-toggle');if(t){t.addEventListener('click',function(){document.querySelector('.docs-sidebar').classList.toggle('open')})}
+  </script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>配置插件 · Notion Flow 文档</title>
+<link rel="icon" href="../../../assets/favicon.ico" />
+<link rel="stylesheet" href="../../../assets/styles.css" />
+<link rel="stylesheet" href="../../../assets/docs.css" />
+</head>
+<body class="docs-body">
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="../../../index.html"><img src="../../../assets/icon.png" alt="" /><span>Notion Flow</span></a>
+    <nav class="nav-links">
+      <a href="../../../index.html#features">功能</a>
+      <a href="./">文档</a>
+      <a href="https://github.com/Xheldon/Notion-Flow-Prod/discussions" target="_blank" rel="noopener">问题反馈</a>
+      <a class="lang" href="../../../en/docs/">EN</a>
+    </nav>
+  </div>
+</header>
+<div class="docs-shell container">
+  <button class="sb-toggle" aria-label="menu">☰ 文档</button>
+  <nav class="docs-sidebar"><div class="sb-head">Notion Flow 文档</div><ul class="sb-list"><li><a class="sb-link" href="../../index.html">前言</a></li><li class="sb-group"><a class="sb-link sb-cat" href="../../basic/index.html">基本功能</a><ul class="sb-sub"><li><a class="sb-link" href="../../basic/toc.html">目录</a></li><li><a class="sb-link" href="../../basic/shortcuts.html">快捷操作</a></li></ul></li><li class="sb-group"><a class="sb-link sb-cat" href="../index.html">高级功能</a><ul class="sb-sub"><li class="sb-group"><a class="sb-link sb-cat" href="./index.html">发布</a><ul class="sb-sub"><li><a class="sb-link" href="./workflow.html">总体流程</a></li><li class="sb-group"><a class="sb-link sb-cat" href="./before-starting/index.html">前置工作</a><ul class="sb-sub"><li><a class="sb-link" href="./before-starting/notion.html">Notion 配置</a></li><li><a class="sb-link" href="./before-starting/github.html">Github 配置</a></li><li class="sb-group"><a class="sb-link sb-cat" href="./before-starting/oss/index.html">图片处理</a><ul class="sb-sub"><li><a class="sb-link" href="./before-starting/oss/tencentcloud.html">腾讯云 COS</a></li><li><a class="sb-link" href="./before-starting/oss/alicloud.html">阿里云 OSS</a></li><li><a class="sb-link" href="./before-starting/oss/aws.html">AWS S3</a></li><li><a class="sb-link" href="./before-starting/oss/cdn.html">CDN</a></li></ul></li></ul></li><li><a class="sb-link active" href="./plugin-configuration.html">配置插件</a></li><li><a class="sb-link" href="./module-conversion.html">模块转换</a></li></ul></li><li class="sb-group"><a class="sb-link sb-cat" href="../ai/index.html">AI</a><ul class="sb-sub"><li><a class="sb-link" href="../ai/before-starting.html">开发中...</a></li></ul></li><li class="sb-group"><a class="sb-link sb-cat" href="../plugin/index.html">插件</a><ul class="sb-sub"><li><a class="sb-link" href="../plugin/before-starting.html">开发中...</a></li></ul></li></ul></li><li><a class="sb-link" href="../../faq.html">常见问题</a></li><li><a class="sb-link" href="../../about.html">关于</a></li></ul></nav>
+  <main class="docs-main">
+    <article class="doc-article">
+      <h1 class="doc-h1">配置插件</h1>
+      <div class="adm adm-tip">
+<p class="adm-title">提示</p>
+<p>随着插件的版本更新，后续配置界面可能发生变化，但相关配置项名称不会变动，所以请以实际界面为准。</p>
+</div>
+<h2 id="notion-配置">Notion 配置</h2>
+<p>Notion Flow 使用 Notion API 来读取 Notion Pages 内容，其中需要用到 <a href="https://developers.notion.com/docs/authorization#internal-integration-auth-flow-set-up">Notion Integration Token</a>。</p>
+<p>将在 <a href="./before-starting/notion.html">Notion 配置</a> 这一步获取的 Notion Integration Token 填入到此处：</p>
+<p><img src="../../../assets/docs-img/docs/config-1.png" alt="Image"></p>
+<div class="adm adm-tip">
+<p class="adm-title">提示</p>
+<p>请不要忘了 <a href="./before-starting/notion.html#%E6%8E%88%E6%9D%83-database">授权</a> 你要发布的 Notion Datebase！</p>
+</div>
+<h2 id="github-配置">Github 配置</h2>
+<p>Notion Flow 使用 Github Personal Token 来将内容发布到 Github 仓库。</p>
+<p>将在 <a href="./before-starting/github.html">Github 配置</a> 这一步获取的 Github 信息填入到此处：</p>
+<p><img src="../../../assets/docs-img/docs/config-2.png" alt="Image"></p>
+<h3 id="启用-front-matter">启用 Front Matter</h3>
+<p><img src="../../../assets/docs-img/docs/config-2.1.png" alt="Image"></p>
+<p>打开该选项后，Notion Flow 会在发布博客的时候，自动添加 Front Matter 到 Markdown 文件头部中。形式为以三个短斜线开头和结尾的内容，例如：</p>
+<pre class="code"><code class="language-yaml">---
+name: My article
+date: 2024-01-11
+---
+</code></pre><div class="adm adm-tip">
+<p class="adm-title">提示</p>
+<p>常见的博客系统对 Front Matter 的支持可以点击对应链接查看更多：<a href="https://jekyllrb.com/docs/front-matter/">Jekyll</a>、<a href="https://hexo.io/docs/front-matter.html">Hexo</a>、<a href="https://gohugo.io/content-management/front-matter/">Hugo</a>、<a href="https://vitepress.dev/guide/frontmatter">VitePress</a> 等。</p>
+</div>
+<h2 id="上传文件路径图片路径">上传文件路径/图片路径</h2>
+<div class="adm adm-warning">
+<p class="adm-title">注意</p>
+<p>如果未配置图片上传路径，则图片等资源将会被忽略。</p>
+</div>
+<p><img src="../../../assets/docs-img/docs/config-3.1.png" alt="Image"></p>
+<p>这里填写你的文件上传到 Github 仓库的文件路径/图片上传到 OSS 的路径。支持使用<code>{{}}</code>引用 Notion Pages Properties 以及四个时间占位符，包括：</p>
+<ul>
+<li><code>YYYY</code> 表示年，如 2024</li>
+<li><code>YY</code> 表示简写年，如 24</li>
+<li><code>MM</code> 表示月，如 01</li>
+<li><code>DD</code> 表示日，如 01</li>
+</ul>
+<p>举个例子，我的 Notion Pages 中的 Property 属性有：</p>
+<ul>
+<li>category: life（或者tech）</li>
+<li>name: my-article-name（值因文章名不同而不同，唯一）</li>
+</ul>
+<p>因此我在这里填写上传文件路径是：<code>_posts/{{category}}/{{YYYY}}/{{YYYY}}-{{MM}}-{{DD}}-{{name}}.md</code>（注意要带格式，因为你上传到 Github 的文件也支持 <code>.html</code>），经过 Notion Flow 处理后就是 <code>_posts/life/2024/2024-01-11-my-article-name.md</code>。</p>
+<p>而我填写的图片路径是：<code>img/in-post/{{YYYY}}/{{name}}</code>，处理后的真实地址是 <code>img/in-post/2024/my-article-name/29c1c887-e773-40b5-9ea1-fb8c3cc703dd.webp</code>。</p>
+<div class="adm adm-tip">
+<p class="adm-title">提示</p>
+<p>注意，上传图片的时候，<code>webp</code> 是默认使用的图片格式，除了 <code>gif</code>、<code>svg</code>、<code>mp4</code>、<code>webm</code>、<code>ogg</code> 这几种媒体格式外，其他的格式如 <code>png</code>、<code>jpg</code>、<code>jpeg</code> 等，都会被转成 webp。</p>
+</div>
+<h2 id="oss-配置">OSS 配置</h2>
+<div class="adm adm-warning">
+<p class="adm-title">注意</p>
+<p>如果未配置 OSS，则图片等资源将会被忽略。</p>
+</div>
+<p>你可以从三种不同的 OSS 服务提供商中选择一个，将你的 OSS 信息填入其中，OSS 信息可以在 <a href="./before-starting/oss/index.html">这里</a> 查看获取步骤。按照对应的名称填入即可：</p>
+<p><img src="../../../assets/docs-img/docs/config-3.png" alt="Image"></p>
+<div class="adm adm-tip">
+<p class="adm-title">提示</p>
+<p>这里除了前两个名称叫法不同外，其他的叫法都是一样的。如 Key 在阿里云中叫 AccessKey ID，在腾讯云中叫 SecretId，在 AWS 中叫 Access Key。而 Secret 在阿里云中叫 AccessKey Secret，在腾讯云中叫 SecretKey，在 AWS 中叫 Secret Access Key。</p>
+</div>
+<h2 id="cdn-地址配置">CDN 地址配置</h2>
+<div class="adm adm-warning">
+<p class="adm-title">注意</p>
+<p>如果未配置 CDN 路径，则图片等资源将会被忽略。</p>
+</div>
+<p>这里设置 CDN 地址，在将 Notion 图片上传到 OSS 服务后，Notion Flow 会使用该地址拼接成图片完整地址后，再将地址写入到 Markdown 中。如我这里的配置就是 <code>http://static.xheldon.cn</code>。</p>
+<h2 id="自动添加-lastupdatetime">自动添加 <code>lastUpdateTime</code></h2>
+<p>对于文章而言，尤其是技术文档，经常会有时效性，让读者知道距离首次发布时候的最后更新日期是一个常用的功能，因此 Notion Flow 支持自动添加 <code>lastUpdateTime</code> 字段，你只需要打开这个开关，每次博客发布 Notion Flow 都会在 Front Matter 中添加 <code>lastUpdateTime</code> 字段。
+然后，你就可以在自己的博客中使用该字段，如我的用法：</p>
+<p><img src="../../../assets/docs-img/docs/config-4.png" alt="Image"></p>
+<p>效果如下：
+<img src="../../../assets/docs-img/docs/config-5.png" alt="Image"></p>
+<h2 id="自动更新-lastupdatetime">自动更新 <code>lastUpdateTime</code></h2>
+<div class="adm adm-warning">
+<p class="adm-title">注意</p>
+<p>需要你先手动在 Notion Pages 中添加 <code>lastUpdateTime</code> Properties 字段，且 Notion 的插件需要读写权限。</p>
+</div>
+<p><img src="../../../assets/docs-img/docs/config-3.2.png" alt="Image"></p>
+<p>使用 Notion Flow 将 Notion 文章发布博客后，你在之后的任意时间在 Notion 查看该 Page 的时候，可能会想知道该文章是否以及何时发布过，因此该选项会在博客发布成功后，使用 Notion API 更新该 Page 的 <code>lastUpdateTime</code> 字段。</p>
+<h2 id="其他-front-matter-字段">其他 Front Matter 字段</h2>
+<p>Notion Pages 的 Property 配置，用来配置跟页面有关的 Front Matter，例如 name、date、tags 等；而此处的 Front Matter 配置，用来配置固定不变的 Fornt Matter。</p>
+<p>对于写博客而言，你可能需要设置一些固定的 Front Matter 字段，例如 <code>layout: post</code> 等，因此 Notion Flow 支持在这里配置固定的 Front Matter 字段，这些字段会在每次发布博客的时候，自动添加到 Front Matter 中。</p>
+<div class="adm adm-tip">
+<p class="adm-title">提示</p>
+<p>Front Matter 以逗号分割，逗号及冒号前后的空格会被忽略，如 <code>layout: post, title: 我的文章标题</code>。</p>
+</div>
+<h2 id="头图的-front-matter-字段">头图的 Front Matter 字段</h2>
+<p>如果打开这个选项，会将 Notion Pages 设置的头图，添加到 Front Matter 中。此处设置的是 Front Matter 头图字段的名称，例如我的头图字段是 <code>header-img</code>，发布博客后就是 <code>header-img: xxx</code>（xxx 为上传到 OSS 的头图地址）。</p>
+<p>注意，这个输入框留空表示不使用头图功能，发布的时候会忽略 Notion Pages 设置的头图。</p>
+
+    </article>
+    <div class="pager"><a class="pager-prev" href="./before-starting/index.html"><span>← 上一页</span><b>前置工作</b></a><a class="pager-next" href="./module-conversion.html"><span>下一页 →</span><b>模块转换</b></a></div>
+  </main>
+</div>
+<footer class="footer"><div class="container">
+    <div class="copyright">© <span id="y">2026</span> Xheldon · Notion Flow</div>
+  </div></footer>
+  <script>document.getElementById('y').textContent=new Date().getFullYear();
+  // 移动端侧边栏
+  var t=document.querySelector('.sb-toggle');if(t){t.addEventListener('click',function(){document.querySelector('.docs-sidebar').classList.toggle('open')})}
+  </script>
+</body>
+</html>

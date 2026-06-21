@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Notion Configuration · Notion Flow Docs</title>
+<link rel="icon" href="../../../../../assets/favicon.ico" />
+<link rel="stylesheet" href="../../../../../assets/styles.css" />
+<link rel="stylesheet" href="../../../../../assets/docs.css" />
+</head>
+<body class="docs-body">
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="../../../../../en/index.html"><img src="../../../../../assets/icon.png" alt="" /><span>Notion Flow</span></a>
+    <nav class="nav-links">
+      <a href="../../../../../en/index.html#features">Features</a>
+      <a href="./">Docs</a>
+      <a href="https://github.com/Xheldon/Notion-Flow-Prod/discussions" target="_blank" rel="noopener">Feedback</a>
+      <a class="lang" href="../../../../../docs/">中文</a>
+    </nav>
+  </div>
+</header>
+<div class="docs-shell container">
+  <button class="sb-toggle" aria-label="menu">☰ Docs</button>
+  <nav class="docs-sidebar"><div class="sb-head">Notion Flow Docs</div><ul class="sb-list"><li><a class="sb-link" href="../../../index.html">Preface</a></li><li class="sb-group"><a class="sb-link sb-cat" href="../../../basic/index.html">Basic</a><ul class="sb-sub"><li><a class="sb-link" href="../../../basic/toc.html">Table of Contents</a></li><li><a class="sb-link" href="../../../basic/shortcuts.html">Quick Operations</a></li></ul></li><li class="sb-group"><a class="sb-link sb-cat" href="../../index.html">Advanced</a><ul class="sb-sub"><li class="sb-group"><a class="sb-link sb-cat" href="../index.html">Publish to Github</a><ul class="sb-sub"><li><a class="sb-link" href="../workflow.html">Overall Process</a></li><li class="sb-group"><a class="sb-link sb-cat" href="./index.html">Before starting</a><ul class="sb-sub"><li><a class="sb-link active" href="./notion.html">Notion Configuration</a></li><li><a class="sb-link" href="./github.html">Github Configuration</a></li><li class="sb-group"><a class="sb-link sb-cat" href="./oss/index.html">Image Processing</a><ul class="sb-sub"><li><a class="sb-link" href="./oss/tencentcloud.html">Tencent Cloud COS</a></li><li><a class="sb-link" href="./oss/alicloud.html">Alibaba Cloud OSS</a></li><li><a class="sb-link" href="./oss/aws.html">AWS S3</a></li><li><a class="sb-link" href="./oss/cdn.html">CDN</a></li></ul></li></ul></li><li><a class="sb-link" href="../plugin-configuration.html">Configuration of Plugins</a></li><li><a class="sb-link" href="../module-conversion.html">Module Conversion</a></li></ul></li><li class="sb-group"><a class="sb-link sb-cat" href="../../ai/index.html">AI</a><ul class="sb-sub"><li><a class="sb-link" href="../../ai/before-starting.html">WIP</a></li></ul></li><li class="sb-group"><a class="sb-link sb-cat" href="../../plugin/index.html">Plugins</a><ul class="sb-sub"><li><a class="sb-link" href="../../plugin/before-starting.html">WIP</a></li></ul></li></ul></li><li><a class="sb-link" href="../../../faq.html">F&amp;Q</a></li><li><a class="sb-link" href="../../../about.html">About</a></li></ul></nav>
+  <main class="docs-main">
+    <article class="doc-article">
+      <h1 class="doc-h1">Notion Configuration</h1>
+      <h2 id="get-notion-integration-token">Get Notion Integration Token</h2>
+<p>Go to the <a href="https://www.notion.so/my-integrations">Notion Developer website</a> and follow the steps below to get your Notion Token:</p>
+<h3 id="create-a-new-integration">Create a New Integration</h3>
+<p>Click the <code>+ New Integration</code> button or the <code>Create new integration</code> card (as shown in the red box below).</p>
+<p><img src="../../../../../assets/docs-img/docs/notion-token-1.png" alt="New Integration"></p>
+<h3 id="fill-in-basic-information">Fill in Basic Information</h3>
+<p>Enter your Integration name (the only required field) and then click the <code>Submit</code> button.</p>
+<div class="adm adm-tip">
+<p class="adm-title">Tip</p>
+<p>Remember this name, as you will need it for authorization in Notion Pages/Databases later.</p>
+</div>
+<p><img src="../../../../../assets/docs-img/docs/notion-token-2.png" alt="Basic Information"></p>
+<h3 id="record-notion-integration-token">Record Notion Integration Token</h3>
+<p>On the next page, click <code>Show</code>, and the Token will be displayed. Click to copy it, and paste this Token in a secure place, as you will need it in the future.</p>
+<div class="adm adm-warning">
+<p class="adm-title">Note</p>
+<p>Do not share this Token with anyone, as it may result in the loss of your Notion content.</p>
+</div>
+<p><img src="../../../../../assets/docs-img/docs/notion-token-3.png" alt="Copy Token"></p>
+<h3 id="copy-my-database-template">Copy My Database Template</h3>
+<div class="adm adm-danger">
+<p class="adm-title">Danger</p>
+<p>The three page properties, including <code>name</code>(no any spaces and illegal file name characters), <code>title</code>, and <code>date</code>, are required. Otherwise, Notion Flow will not work properly and will throw a error.</p>
+</div>
+<p>You can create your own Database and proceed with the authorization, or you can choose to use <a href="https://xheldon.notion.site/Database-Template-622402ad819542b19b6f214ff286e4a5">the Notion Database template I am using</a>, which already includes all the necessary and useful Properties. You only need to create Pages inside it, making it easier to publish articles in the future.</p>
+<div class="adm adm-tip">
+<p class="adm-title">Tip</p>
+<p>Currently, Notion's Page Properties support the following types of formats; other formats will be ignored:</p>
+<ul>
+<li>rich_text: string</li>
+<li>multi_select: yaml list</li>
+<li>select: string</li>
+<li>date: string</li>
+<li>url: string</li>
+<li>formula: string</li>
+<li>checkbox: string (true/false)</li>
+</ul>
+</div>
+<h3 id="authorize-the-database">Authorize the Database</h3>
+<div class="adm adm-tip">
+<p class="adm-title">Tip</p>
+<p>You must use a Notion Database to manage your blog articles, as only Pages within a Database have Properties, which are crucial information for the Front Matter.
+Consider duplicating this Database template and create Pages within it for future article writing.</p>
+</div>
+<p>You must authorize the Notion Database for the Integration you just applied for, so that Integration can access your Notion Database.</p>
+<ul>
+<li>Click on the three dots in the top right corner of the page</li>
+<li>Click the <code>+ Add connecttions</code> button at the bottom of the list that appears, and filter by the name of the Integration you just applied for, then select it!</li>
+</ul>
+<p><img src="../../../../../assets/docs-img/docs/notion-token-5.png" alt="Auth"></p>
+<p>That's it! If you want to further customize permissions, continue reading below.</p>
+<h3 id="more-information">More Information</h3>
+<p>You can adjust the permissions of the Integration by clicking on <code>Capabilities</code> on the left side of the page.</p>
+<div class="adm adm-warning">
+<p class="adm-title">Note</p>
+<p>Note that the required permission for Notion Flow is <code>Read content</code>. If you do not need to update the <code>lastUpdateTime</code> field of Notion Pages after publishing a blog (which allows you to easily see when the Page was published) or the AI features that will be provided in the future, then <code>Update content</code> and <code>Insert content</code> are not necessary.
+Additionally, Notion Flow does not require any user information or comments from Notion, so you can leave the Comment and User Capabilities below as default.</p>
+</div>
+<p><img src="../../../../../assets/docs-img/docs/notion-token-4.png" alt="More Capabilities"></p>
+
+    </article>
+    <div class="pager"><a class="pager-prev" href="../workflow.html"><span>← Previous</span><b>Overall Process</b></a><a class="pager-next" href="./github.html"><span>Next →</span><b>Github Configuration</b></a></div>
+  </main>
+</div>
+<footer class="footer"><div class="container">
+    <div class="copyright">© <span id="y">2026</span> Xheldon · Notion Flow</div>
+  </div></footer>
+  <script>document.getElementById('y').textContent=new Date().getFullYear();
+  // 移动端侧边栏
+  var t=document.querySelector('.sb-toggle');if(t){t.addEventListener('click',function(){document.querySelector('.docs-sidebar').classList.toggle('open')})}
+  </script>
+</body>
+</html>

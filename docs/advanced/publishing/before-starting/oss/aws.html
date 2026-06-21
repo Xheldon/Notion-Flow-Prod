@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AWS S3 · Notion Flow 文档</title>
+<link rel="icon" href="../../../../../assets/favicon.ico" />
+<link rel="stylesheet" href="../../../../../assets/styles.css" />
+<link rel="stylesheet" href="../../../../../assets/docs.css" />
+</head>
+<body class="docs-body">
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="../../../../../index.html"><img src="../../../../../assets/icon.png" alt="" /><span>Notion Flow</span></a>
+    <nav class="nav-links">
+      <a href="../../../../../index.html#features">功能</a>
+      <a href="./">文档</a>
+      <a href="https://github.com/Xheldon/Notion-Flow-Prod/discussions" target="_blank" rel="noopener">问题反馈</a>
+      <a class="lang" href="../../../../../en/docs/">EN</a>
+    </nav>
+  </div>
+</header>
+<div class="docs-shell container">
+  <button class="sb-toggle" aria-label="menu">☰ 文档</button>
+  <nav class="docs-sidebar"><div class="sb-head">Notion Flow 文档</div><ul class="sb-list"><li><a class="sb-link" href="../../../../index.html">前言</a></li><li class="sb-group"><a class="sb-link sb-cat" href="../../../../basic/index.html">基本功能</a><ul class="sb-sub"><li><a class="sb-link" href="../../../../basic/toc.html">目录</a></li><li><a class="sb-link" href="../../../../basic/shortcuts.html">快捷操作</a></li></ul></li><li class="sb-group"><a class="sb-link sb-cat" href="../../../index.html">高级功能</a><ul class="sb-sub"><li class="sb-group"><a class="sb-link sb-cat" href="../../index.html">发布</a><ul class="sb-sub"><li><a class="sb-link" href="../../workflow.html">总体流程</a></li><li class="sb-group"><a class="sb-link sb-cat" href="../index.html">前置工作</a><ul class="sb-sub"><li><a class="sb-link" href="../notion.html">Notion 配置</a></li><li><a class="sb-link" href="../github.html">Github 配置</a></li><li class="sb-group"><a class="sb-link sb-cat" href="./index.html">图片处理</a><ul class="sb-sub"><li><a class="sb-link" href="./tencentcloud.html">腾讯云 COS</a></li><li><a class="sb-link" href="./alicloud.html">阿里云 OSS</a></li><li><a class="sb-link active" href="./aws.html">AWS S3</a></li><li><a class="sb-link" href="./cdn.html">CDN</a></li></ul></li></ul></li><li><a class="sb-link" href="../../plugin-configuration.html">配置插件</a></li><li><a class="sb-link" href="../../module-conversion.html">模块转换</a></li></ul></li><li class="sb-group"><a class="sb-link sb-cat" href="../../../ai/index.html">AI</a><ul class="sb-sub"><li><a class="sb-link" href="../../../ai/before-starting.html">开发中...</a></li></ul></li><li class="sb-group"><a class="sb-link sb-cat" href="../../../plugin/index.html">插件</a><ul class="sb-sub"><li><a class="sb-link" href="../../../plugin/before-starting.html">开发中...</a></li></ul></li></ul></li><li><a class="sb-link" href="../../../../faq.html">常见问题</a></li><li><a class="sb-link" href="../../../../about.html">关于</a></li></ul></nav>
+  <main class="docs-main">
+    <article class="doc-article">
+      <h1 class="doc-h1">AWS S3</h1>
+      <blockquote>
+<p>Amazon Simple Storage Service (Amazon S3) 是一种对象存储服务，提供行业领先的可扩展性、数据可用性、安全性和性能。各种规模和行业的客户可以为几乎任何使用案例存储和保护任意数量的数据，例如数据湖、云原生应用程序和移动应用程序。借助高成本效益的存储类和易于使用的管理功能，您可以优化成本、组织数据并配置精细调整过的访问控制，从而满足特定的业务、组织和合规性要求。官网地址见 <a href="https://aws.amazon.com/cn/s3/">AWS S3</a>。</p>
+</blockquote>
+<p>AWS 创建存储桶过程非常简单，进入 <a href="https://s3.console.aws.amazon.com/s3/bucket/create">Amazon S3 创建存储桶</a> 页面，它会自动帮你选择合适的存储桶位置，你需要填写的只有存储桶名称，其他选项可以保持默认。你可以手动修改存储桶地域，最后在页面的最下方点击创建按钮即可。</p>
+<p><img src="../../../../../assets/docs-img/docs/oss-token-8.png" alt="Image"></p>
+<p>之后，页面会自动进入存储桶页面，记下存储桶名称，和区域信息，后面会用到，如我这里的存储桶名称是 <code>notion-blog-static</code>，区域是 <code>us-west-2</code>：</p>
+<p><img src="../../../../../assets/docs-img/docs/oss-token-9.png" alt="Image"></p>
+<h2 id="获取-accesskey-和-secretkey">获取 AccessKey 和 SecretKey</h2>
+<p>进入 <a href="https://us-east-1.console.aws.amazon.com/iam/home#/security_credentials/access-key-wizard">AWS 获取密钥页面</a>，点击创建访问密钥按钮。</p>
+<p><img src="../../../../../assets/docs-img/docs/oss-token-10.png" alt="Image"></p>
+<div class="adm adm-tip">
+<p class="adm-title">提示</p>
+<p>Notion Flow 还支持自建支持 AWS S3 API 的 OSS 服务，如 <a href="https://developers.cloudflare.com/r2/">Cloudflare R2</a>，等，比官方 AWS S3 多了一个 <code>endpoint</code> 配置。</p>
+</div>
+
+    </article>
+    <div class="pager"><a class="pager-prev" href="./alicloud.html"><span>← 上一页</span><b>阿里云 OSS</b></a><a class="pager-next" href="./cdn.html"><span>下一页 →</span><b>CDN</b></a></div>
+  </main>
+</div>
+<footer class="footer"><div class="container">
+    <div class="copyright">© <span id="y">2026</span> Xheldon · Notion Flow</div>
+  </div></footer>
+  <script>document.getElementById('y').textContent=new Date().getFullYear();
+  // 移动端侧边栏
+  var t=document.querySelector('.sb-toggle');if(t){t.addEventListener('click',function(){document.querySelector('.docs-sidebar').classList.toggle('open')})}
+  </script>
+</body>
+</html>

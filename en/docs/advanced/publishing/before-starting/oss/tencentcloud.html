@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tencent Cloud COS · Notion Flow Docs</title>
+<link rel="icon" href="../../../../../../assets/favicon.ico" />
+<link rel="stylesheet" href="../../../../../../assets/styles.css" />
+<link rel="stylesheet" href="../../../../../../assets/docs.css" />
+</head>
+<body class="docs-body">
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="../../../../../../en/index.html"><img src="../../../../../../assets/icon.png" alt="" /><span>Notion Flow</span></a>
+    <nav class="nav-links">
+      <a href="../../../../../../en/index.html#features">Features</a>
+      <a href="./">Docs</a>
+      <a href="https://github.com/Xheldon/Notion-Flow-Prod/discussions" target="_blank" rel="noopener">Feedback</a>
+      <a class="lang" href="../../../../../../docs/">中文</a>
+    </nav>
+  </div>
+</header>
+<div class="docs-shell container">
+  <button class="sb-toggle" aria-label="menu">☰ Docs</button>
+  <nav class="docs-sidebar"><div class="sb-head">Notion Flow Docs</div><ul class="sb-list"><li><a class="sb-link" href="../../../../index.html">Preface</a></li><li class="sb-group"><a class="sb-link sb-cat" href="../../../../basic/index.html">Basic</a><ul class="sb-sub"><li><a class="sb-link" href="../../../../basic/toc.html">Table of Contents</a></li><li><a class="sb-link" href="../../../../basic/shortcuts.html">Quick Operations</a></li></ul></li><li class="sb-group"><a class="sb-link sb-cat" href="../../../index.html">Advanced</a><ul class="sb-sub"><li class="sb-group"><a class="sb-link sb-cat" href="../../index.html">Publish to Github</a><ul class="sb-sub"><li><a class="sb-link" href="../../workflow.html">Overall Process</a></li><li class="sb-group"><a class="sb-link sb-cat" href="../index.html">Before starting</a><ul class="sb-sub"><li><a class="sb-link" href="../notion.html">Notion Configuration</a></li><li><a class="sb-link" href="../github.html">Github Configuration</a></li><li class="sb-group"><a class="sb-link sb-cat" href="./index.html">Image Processing</a><ul class="sb-sub"><li><a class="sb-link active" href="./tencentcloud.html">Tencent Cloud COS</a></li><li><a class="sb-link" href="./alicloud.html">Alibaba Cloud OSS</a></li><li><a class="sb-link" href="./aws.html">AWS S3</a></li><li><a class="sb-link" href="./cdn.html">CDN</a></li></ul></li></ul></li><li><a class="sb-link" href="../../plugin-configuration.html">Configuration of Plugins</a></li><li><a class="sb-link" href="../../module-conversion.html">Module Conversion</a></li></ul></li><li class="sb-group"><a class="sb-link sb-cat" href="../../../ai/index.html">AI</a><ul class="sb-sub"><li><a class="sb-link" href="../../../ai/before-starting.html">WIP</a></li></ul></li><li class="sb-group"><a class="sb-link sb-cat" href="../../../plugin/index.html">Plugins</a><ul class="sb-sub"><li><a class="sb-link" href="../../../plugin/before-starting.html">WIP</a></li></ul></li></ul></li><li><a class="sb-link" href="../../../../faq.html">F&amp;Q</a></li><li><a class="sb-link" href="../../../../about.html">About</a></li></ul></nav>
+  <main class="docs-main">
+    <article class="doc-article">
+      <h1 class="doc-h1">Tencent Cloud COS</h1>
+      <blockquote>
+<p>Cloud Object Storage (COS) is a distributed storage service launched by Tencent Cloud. It has a non-hierarchical directory structure, no data format restrictions, and can accommodate massive data with support for HTTP/HTTPS protocol access. Tencent Cloud COS has no capacity limit for storage buckets, no need for partition management, and is suitable for various scenarios such as CDN data distribution, data processing, or data lakes for big data computing and analysis. For the official website, please visit <a href="https://cloud.tencent.com/product/cos">Tencent Cloud COS</a>.</p>
+</blockquote>
+<div class="adm adm-tip">
+<p class="adm-title">Tip</p>
+<p>If you already have a storage bucket for storing blog images, you can skip this section and go directly to the later section on <a href="#getting-storage-buckets-and-regions">Getting Storage Buckets and Regions</a>. If you do not have Tencent Cloud OSS service, you need to first <a href="https://buy.cloud.tencent.com/cos">purchase</a>. My configuration is China Mainland General, charged by storage capacity, standard storage, 10G, 1 year, and an additional data processing resource pack for &quot;traffic-100G/year&quot; type, with a total cost of 20.12 yuan per year.</p>
+</div>
+<h2 id="creating-a-storage-bucket">Creating a Storage Bucket</h2>
+<p>Go to the Tencent Cloud Console <a href="https://console.cloud.tencent.com/cos/bucket">COS Bucket</a> page, click on &quot;Create Bucket,&quot; and keep the access permissions set to &quot;Private Read/Write,&quot; which will be later configured for CDN access. Set other configurations according to your specific needs:</p>
+<p><img src="../../../../../../assets/docs-img/docs/oss-token-1.png" alt="Image"></p>
+<p>Then, proceed with the steps and click &quot;Create.&quot;</p>
+<h2 id="getting-storage-buckets-and-regions">Getting Storage Buckets and Regions</h2>
+<p>Storage bucket and region are two important concepts in COS, and object storage is isolated by &quot;bucket&quot; units.</p>
+<p>Go to the <a href="https://console.cloud.tencent.com/cos/bucket">COS Bucket</a> page, and in the list below, you will find the storage bucket you just created with its name and region:</p>
+<p><img src="../../../../../../assets/docs-img/docs/oss-token-2.png" alt="Image"></p>
+<p>In the image, <code>notion-blog-1254272402</code> is the bucket name, and <code>ap-nanjing</code> is the region name. Note down this information, as it will be used later in the plugin configuration.</p>
+<h2 id="getting-secretid-and-secretkey">Getting SecretId and SecretKey</h2>
+<p>Go to the Tencent Cloud <a href="https://console.cloud.tencent.com/cam/capi">Key Creation Interface</a>, click on &quot;Create Key,&quot; and then record the SecretId and SecretKey from the pop-up box.</p>
+<div class="adm adm-warning">
+<p class="adm-title">Note</p>
+<p>Note that this SecretKey will only appear once, so be sure to save it promptly.</p>
+</div>
+<p><img src="../../../../../../assets/docs-img/docs/oss-token-3.png" alt="Image"></p>
+<div class="adm adm-tip">
+<p class="adm-title">Tip</p>
+<p>If you are using a master account (the default account), the SecretId and SecretKey you create will have the highest level of permissions. If leaked, there will be a certain security risk.</p>
+<p>If you want a more secure configuration, you can use sub-accounts for authorization, and the COS service needs to authorize sub-accounts for read and write permissions. For specifics, please refer to Tencent Cloud documentation.</p>
+</div>
+
+    </article>
+    <div class="pager"><a class="pager-prev" href="../github.html"><span>← Previous</span><b>Github Configuration</b></a><a class="pager-next" href="./alicloud.html"><span>Next →</span><b>Alibaba Cloud OSS</b></a></div>
+  </main>
+</div>
+<footer class="footer"><div class="container">
+    <div class="copyright">© <span id="y">2026</span> Xheldon · Notion Flow</div>
+  </div></footer>
+  <script>document.getElementById('y').textContent=new Date().getFullYear();
+  // 移动端侧边栏
+  var t=document.querySelector('.sb-toggle');if(t){t.addEventListener('click',function(){document.querySelector('.docs-sidebar').classList.toggle('open')})}
+  </script>
+</body>
+</html>

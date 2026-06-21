@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Notion 配置 · Notion Flow 文档</title>
+<link rel="icon" href="../../../../assets/favicon.ico" />
+<link rel="stylesheet" href="../../../../assets/styles.css" />
+<link rel="stylesheet" href="../../../../assets/docs.css" />
+</head>
+<body class="docs-body">
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="../../../../index.html"><img src="../../../../assets/icon.png" alt="" /><span>Notion Flow</span></a>
+    <nav class="nav-links">
+      <a href="../../../../index.html#features">功能</a>
+      <a href="./">文档</a>
+      <a href="https://github.com/Xheldon/Notion-Flow-Prod/discussions" target="_blank" rel="noopener">问题反馈</a>
+      <a class="lang" href="../../../../en/docs/">EN</a>
+    </nav>
+  </div>
+</header>
+<div class="docs-shell container">
+  <button class="sb-toggle" aria-label="menu">☰ 文档</button>
+  <nav class="docs-sidebar"><div class="sb-head">Notion Flow 文档</div><ul class="sb-list"><li><a class="sb-link" href="../../../index.html">前言</a></li><li class="sb-group"><a class="sb-link sb-cat" href="../../../basic/index.html">基本功能</a><ul class="sb-sub"><li><a class="sb-link" href="../../../basic/toc.html">目录</a></li><li><a class="sb-link" href="../../../basic/shortcuts.html">快捷操作</a></li></ul></li><li class="sb-group"><a class="sb-link sb-cat" href="../../index.html">高级功能</a><ul class="sb-sub"><li class="sb-group"><a class="sb-link sb-cat" href="../index.html">发布</a><ul class="sb-sub"><li><a class="sb-link" href="../workflow.html">总体流程</a></li><li class="sb-group"><a class="sb-link sb-cat" href="./index.html">前置工作</a><ul class="sb-sub"><li><a class="sb-link active" href="./notion.html">Notion 配置</a></li><li><a class="sb-link" href="./github.html">Github 配置</a></li><li class="sb-group"><a class="sb-link sb-cat" href="./oss/index.html">图片处理</a><ul class="sb-sub"><li><a class="sb-link" href="./oss/tencentcloud.html">腾讯云 COS</a></li><li><a class="sb-link" href="./oss/alicloud.html">阿里云 OSS</a></li><li><a class="sb-link" href="./oss/aws.html">AWS S3</a></li><li><a class="sb-link" href="./oss/cdn.html">CDN</a></li></ul></li></ul></li><li><a class="sb-link" href="../plugin-configuration.html">配置插件</a></li><li><a class="sb-link" href="../module-conversion.html">模块转换</a></li></ul></li><li class="sb-group"><a class="sb-link sb-cat" href="../../ai/index.html">AI</a><ul class="sb-sub"><li><a class="sb-link" href="../../ai/before-starting.html">开发中...</a></li></ul></li><li class="sb-group"><a class="sb-link sb-cat" href="../../plugin/index.html">插件</a><ul class="sb-sub"><li><a class="sb-link" href="../../plugin/before-starting.html">开发中...</a></li></ul></li></ul></li><li><a class="sb-link" href="../../../faq.html">常见问题</a></li><li><a class="sb-link" href="../../../about.html">关于</a></li></ul></nav>
+  <main class="docs-main">
+    <article class="doc-article">
+      <h1 class="doc-h1">Notion 配置</h1>
+      <h2 id="获取-notion-integration-token">获取 Notion Integration Token</h2>
+<p>进入 <a href="https://www.notion.so/my-integrations">Notion 开发者网站</a>，按照以下步骤获取你的 Notion Token：</p>
+<h3 id="新建-integration">新建 Integration</h3>
+<p>点击 <code>+ New Integration</code> 按钮或 <code>Create new integration</code> 卡片（如下红框所示）。</p>
+<p><img src="../../../../assets/docs-img/docs/notion-token-1.png" alt="New Integration"></p>
+<h3 id="填写基本信息">填写基本信息</h3>
+<p>输入你的 Integration 名称，只有名称是必填项，然后点击 <code>Submit</code> 按钮。</p>
+<div class="adm adm-tip">
+<p class="adm-title">提示</p>
+<p>请记住这个名字，后面在 Notion Pages/Database 中授权时需要用到。</p>
+</div>
+<p><img src="../../../../assets/docs-img/docs/notion-token-2.png" alt="Basic Information"></p>
+<h3 id="记录-notion-integration-token">记录 Notion Integration Token</h3>
+<p>在接下来的页面中，点击 <code>Show</code>，然后 Token 就会显示出来，点击复制即可，请将这个 Token 粘贴到一个私密的地方，后续需要用到它。</p>
+<div class="adm adm-warning">
+<p class="adm-title">注意</p>
+<p>不要把这个 Token 泄露给任何人，否则可能会导致你的 Notion 内容丢失。</p>
+</div>
+<p><img src="../../../../assets/docs-img/docs/notion-token-3.png" alt="Copy Token"></p>
+<h3 id="复制我的-database-模板">复制我的 Database 模板</h3>
+<div class="adm adm-danger">
+<p class="adm-title">危险</p>
+<p>Notion Page Properties 中，<code>name</code>（不含任何空格和非法文件名字符）、<code>title</code>（页面标题）、<code>date</code> 这三个页面属性是必须的，否则 Notion Flow 不会正常工作并将抛出警告。</p>
+</div>
+<p>你可以自己自由创建 Database，然后进行下一步的授权，也可以选择 <a href="https://xheldon.notion.site/Database-Template-622402ad819542b19b6f214ff286e4a5">我正在使用的 Notion Database 模板</a>，它已经包含了所有必要和有用的 Properties，你只需要在里面新建 Pages 即可，后续的文章发布也会更加方便。</p>
+<div class="adm adm-tip">
+<p class="adm-title">提示</p>
+<p>对于 Notion 的 Page Properties 目前支持以下类型的格式，其他格式会被忽略：</p>
+<ul>
+<li>rich_text: string</li>
+<li>multi_select: yaml 的 list</li>
+<li>select: string</li>
+<li>date: string</li>
+<li>url: string</li>
+<li>formula: string</li>
+<li>checkbox: string(true/false)</li>
+</ul>
+</div>
+<h3 id="授权-database">授权 Database</h3>
+<div class="adm adm-tip">
+<p class="adm-title">提示</p>
+<p>你必须使用 Notion Database 来管理你的博客文章，因为只有在 Database 中的 Pages 才有 Properties，而 Properties 是作为 Fornt Matter 的关键信息。
+你可以考虑复制 这个 Database 模板，后续写文章时直接在其内新建 Pages 即可。</p>
+</div>
+<p>你只有给 Notion Database 授权了你刚刚申请的 Integration 之后，该 Integration 才能够访问你的 Notion Database。</p>
+<ul>
+<li>点击页面的右上角三个点</li>
+<li>点击出现的列表下方的 <code>+ Add connecttions</code> 按钮，输入你刚刚申请的 Integration 名称筛选，然后选中即可！</li>
+</ul>
+<p><img src="../../../../assets/docs-img/docs/notion-token-5.png" alt="Auth"></p>
+<p>这就是全部！如果你还想更精细的配置权限，可以继续往下看。</p>
+<h3 id="更多说明">更多说明</h3>
+<p>你可以调整 Ingegration 的权限，点击页面左侧的 <code>Capabilities</code> 来进行设置。</p>
+<div class="adm adm-warning">
+<p class="adm-title">注意</p>
+<p>注意，Notion Flow 必须的权限是 <code>Read content</code>。如果你不需要后面将会提到发布博客后更新 Notion Pages 的 <code>lastUpdateTime</code> 字段（它可以让你方便的查看该 Page 是何时发布的），以及不需要将来会提供的 AI 功能，那么 <code>Update content</code> 和 <code>Insert content</code> 也不是必须的。
+另外，Notion Flow 不需要任何 Notion 的用户信息和评论，因此下面的 Commnet 和 User Capabilities 保持默认即可。</p>
+</div>
+<p><img src="../../../../assets/docs-img/docs/notion-token-4.png" alt="More Capabilities"></p>
+
+    </article>
+    <div class="pager"><a class="pager-prev" href="../workflow.html"><span>← 上一页</span><b>总体流程</b></a><a class="pager-next" href="./github.html"><span>下一页 →</span><b>Github 配置</b></a></div>
+  </main>
+</div>
+<footer class="footer"><div class="container">
+    <div class="copyright">© <span id="y">2026</span> Xheldon · Notion Flow</div>
+  </div></footer>
+  <script>document.getElementById('y').textContent=new Date().getFullYear();
+  // 移动端侧边栏
+  var t=document.querySelector('.sb-toggle');if(t){t.addEventListener('click',function(){document.querySelector('.docs-sidebar').classList.toggle('open')})}
+  </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>常见问题 · Notion Flow 文档</title>
+<link rel="icon" href="../assets/favicon.ico" />
+<link rel="stylesheet" href="../assets/styles.css" />
+<link rel="stylesheet" href="../assets/docs.css" />
+</head>
+<body class="docs-body">
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="../index.html"><img src="../assets/icon.png" alt="" /><span>Notion Flow</span></a>
+    <nav class="nav-links">
+      <a href="../index.html#features">功能</a>
+      <a href="./">文档</a>
+      <a href="https://github.com/Xheldon/Notion-Flow-Prod/discussions" target="_blank" rel="noopener">问题反馈</a>
+      <a class="lang" href="../en/docs/">EN</a>
+    </nav>
+  </div>
+</header>
+<div class="docs-shell container">
+  <button class="sb-toggle" aria-label="menu">☰ 文档</button>
+  <nav class="docs-sidebar"><div class="sb-head">Notion Flow 文档</div><ul class="sb-list"><li><a class="sb-link" href="./index.html">前言</a></li><li class="sb-group"><a class="sb-link sb-cat" href="./basic/index.html">基本功能</a><ul class="sb-sub"><li><a class="sb-link" href="./basic/toc.html">目录</a></li><li><a class="sb-link" href="./basic/shortcuts.html">快捷操作</a></li></ul></li><li class="sb-group"><a class="sb-link sb-cat" href="./advanced/index.html">高级功能</a><ul class="sb-sub"><li class="sb-group"><a class="sb-link sb-cat" href="./advanced/publishing/index.html">发布</a><ul class="sb-sub"><li><a class="sb-link" href="./advanced/publishing/workflow.html">总体流程</a></li><li class="sb-group"><a class="sb-link sb-cat" href="./advanced/publishing/before-starting/index.html">前置工作</a><ul class="sb-sub"><li><a class="sb-link" href="./advanced/publishing/before-starting/notion.html">Notion 配置</a></li><li><a class="sb-link" href="./advanced/publishing/before-starting/github.html">Github 配置</a></li><li class="sb-group"><a class="sb-link sb-cat" href="./advanced/publishing/before-starting/oss/index.html">图片处理</a><ul class="sb-sub"><li><a class="sb-link" href="./advanced/publishing/before-starting/oss/tencentcloud.html">腾讯云 COS</a></li><li><a class="sb-link" href="./advanced/publishing/before-starting/oss/alicloud.html">阿里云 OSS</a></li><li><a class="sb-link" href="./advanced/publishing/before-starting/oss/aws.html">AWS S3</a></li><li><a class="sb-link" href="./advanced/publishing/before-starting/oss/cdn.html">CDN</a></li></ul></li></ul></li><li><a class="sb-link" href="./advanced/publishing/plugin-configuration.html">配置插件</a></li><li><a class="sb-link" href="./advanced/publishing/module-conversion.html">模块转换</a></li></ul></li><li class="sb-group"><a class="sb-link sb-cat" href="./advanced/ai/index.html">AI</a><ul class="sb-sub"><li><a class="sb-link" href="./advanced/ai/before-starting.html">开发中...</a></li></ul></li><li class="sb-group"><a class="sb-link sb-cat" href="./advanced/plugin/index.html">插件</a><ul class="sb-sub"><li><a class="sb-link" href="./advanced/plugin/before-starting.html">开发中...</a></li></ul></li></ul></li><li><a class="sb-link active" href="./faq.html">常见问题</a></li><li><a class="sb-link" href="./about.html">关于</a></li></ul></nav>
+  <main class="docs-main">
+    <article class="doc-article">
+      <h1 class="doc-h1">常见问题</h1>
+      <h2 id="为什么有时候目录没有出现或只显示一部分目录">为什么有时候目录没有出现或只显示一部分目录？</h2>
+<p>受困于性能与插件注入的时机，Notion Flow 的目录功能并不能总是 100% 同步更新，此时你需要手动输入一些内容或者鼠标点一点页面，亦或者刷新页面，即可触发目录的更新。</p>
+<h2 id="为什么-edge-切换到其他标签页再切换回来notion-flow-的侧边栏就自动关闭了">为什么 Edge 切换到其他标签页再切换回来，Notion Flow 的侧边栏就自动关闭了？</h2>
+<p>这本是一个 Chrome 和 Edge 共同的 bug，但是 Chrome 修复了，<strong>Edge 还未修复</strong>。目前没有找到解决方案，如果你有解决方案，请告诉我。报错如下：</p>
+<p><img src="../assets/docs-img/docs/ms-bug.png" alt="ms-bug-png"></p>
+<pre class="code"><code class="language-text">Uncaught (in promise) Error: `sidePanel.open()` may only be called in response to a user gesture.
+</code></pre><p>见 Bug report:</p>
+<p><a href="https://github.com/microsoft/MicrosoftEdge-Extensions/discussions/95#discussioncomment-7818005">https://github.com/microsoft/MicrosoftEdge-Extensions/discussions/95#discussioncomment-7818005</a></p>
+<p>和:</p>
+<p><a href="https://github.com/microsoft/MicrosoftEdge-Extensions/issues/142">https://github.com/microsoft/MicrosoftEdge-Extensions/issues/142</a></p>
+<p>如 bug 中所提及的，Edge 的 Sidepanel 另一个 bug 是无法使用键盘粘贴内容。</p>
+<h2 id="发布功能需要这么多的-token安全吗">发布功能需要这么多的 Token，安全吗？</h2>
+<p>Notion Flow 保证不会收集任何用户隐私，所有的 Token 都是保存在用户本地，不会上传到任何服务器。你可以通过查看 devtools 的 Network 面板来确认这一点。</p>
+<h2 id="将来考虑收费吗">将来考虑收费吗？</h2>
+<p>因为这个功能过于小众，因此短期内收费也赚不到钱，还不如免费给大家用，图一乐，如果本插件对你有帮助，为了更好的发展，请考虑 <a href="./index.html#%E6%94%AF%E6%8C%81%E6%88%91%E7%9A%84%E5%BC%80%E5%8F%91%E5%B7%A5%E4%BD%9C">赞赏</a>。</p>
+<p>而且添加收费功能就要用到服务器，我不想搞这么麻烦，平常我自己用这个插件也就是前端用]，搞服务器就背离原来的初衷了，可以，但没必要。</p>
+<h2 id="为什么闭源">为什么闭源？</h2>
+<p>为了防止开源后被部分人打包二次售卖。</p>
+<h2 id="去哪儿提需求bug">去哪儿提需求/Bug？</h2>
+<p>Github 上有 <a href="https://github.com/Xheldon/Notion-Flow-Prod/discussions">Discussion</a> 讨论和 <a href="https://github.com/Xheldon/Notion-Flow-Prod/issues">Issue</a> 进行 Bug 反馈。</p>
+<p>另外，Notion Flow 有自己的功能路线规划，如果想要定制，请考虑 <a href="./index.html#%E6%94%AF%E6%8C%81%E6%88%91%E7%9A%84%E5%BC%80%E5%8F%91%E5%B7%A5%E4%BD%9C">赞赏</a>。</p>
+
+    </article>
+    <div class="pager"><a class="pager-prev" href="./advanced/index.html"><span>← 上一页</span><b>高级功能</b></a><a class="pager-next" href="./about.html"><span>下一页 →</span><b>关于</b></a></div>
+  </main>
+</div>
+<footer class="footer"><div class="container">
+    <div class="copyright">© <span id="y">2026</span> Xheldon · Notion Flow</div>
+  </div></footer>
+  <script>document.getElementById('y').textContent=new Date().getFullYear();
+  // 移动端侧边栏
+  var t=document.querySelector('.sb-toggle');if(t){t.addEventListener('click',function(){document.querySelector('.docs-sidebar').classList.toggle('open')})}
+  </script>
+</body>
+</html>

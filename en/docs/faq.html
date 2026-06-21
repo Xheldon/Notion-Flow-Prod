@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>F&amp;Q · Notion Flow Docs</title>
+<link rel="icon" href="../../assets/favicon.ico" />
+<link rel="stylesheet" href="../../assets/styles.css" />
+<link rel="stylesheet" href="../../assets/docs.css" />
+</head>
+<body class="docs-body">
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="../../en/index.html"><img src="../../assets/icon.png" alt="" /><span>Notion Flow</span></a>
+    <nav class="nav-links">
+      <a href="../../en/index.html#features">Features</a>
+      <a href="./">Docs</a>
+      <a href="https://github.com/Xheldon/Notion-Flow-Prod/discussions" target="_blank" rel="noopener">Feedback</a>
+      <a class="lang" href="../../docs/">中文</a>
+    </nav>
+  </div>
+</header>
+<div class="docs-shell container">
+  <button class="sb-toggle" aria-label="menu">☰ Docs</button>
+  <nav class="docs-sidebar"><div class="sb-head">Notion Flow Docs</div><ul class="sb-list"><li><a class="sb-link" href="./index.html">Preface</a></li><li class="sb-group"><a class="sb-link sb-cat" href="./basic/index.html">Basic</a><ul class="sb-sub"><li><a class="sb-link" href="./basic/toc.html">Table of Contents</a></li><li><a class="sb-link" href="./basic/shortcuts.html">Quick Operations</a></li></ul></li><li class="sb-group"><a class="sb-link sb-cat" href="./advanced/index.html">Advanced</a><ul class="sb-sub"><li class="sb-group"><a class="sb-link sb-cat" href="./advanced/publishing/index.html">Publish to Github</a><ul class="sb-sub"><li><a class="sb-link" href="./advanced/publishing/workflow.html">Overall Process</a></li><li class="sb-group"><a class="sb-link sb-cat" href="./advanced/publishing/before-starting/index.html">Before starting</a><ul class="sb-sub"><li><a class="sb-link" href="./advanced/publishing/before-starting/notion.html">Notion Configuration</a></li><li><a class="sb-link" href="./advanced/publishing/before-starting/github.html">Github Configuration</a></li><li class="sb-group"><a class="sb-link sb-cat" href="./advanced/publishing/before-starting/oss/index.html">Image Processing</a><ul class="sb-sub"><li><a class="sb-link" href="./advanced/publishing/before-starting/oss/tencentcloud.html">Tencent Cloud COS</a></li><li><a class="sb-link" href="./advanced/publishing/before-starting/oss/alicloud.html">Alibaba Cloud OSS</a></li><li><a class="sb-link" href="./advanced/publishing/before-starting/oss/aws.html">AWS S3</a></li><li><a class="sb-link" href="./advanced/publishing/before-starting/oss/cdn.html">CDN</a></li></ul></li></ul></li><li><a class="sb-link" href="./advanced/publishing/plugin-configuration.html">Configuration of Plugins</a></li><li><a class="sb-link" href="./advanced/publishing/module-conversion.html">Module Conversion</a></li></ul></li><li class="sb-group"><a class="sb-link sb-cat" href="./advanced/ai/index.html">AI</a><ul class="sb-sub"><li><a class="sb-link" href="./advanced/ai/before-starting.html">WIP</a></li></ul></li><li class="sb-group"><a class="sb-link sb-cat" href="./advanced/plugin/index.html">Plugins</a><ul class="sb-sub"><li><a class="sb-link" href="./advanced/plugin/before-starting.html">WIP</a></li></ul></li></ul></li><li><a class="sb-link active" href="./faq.html">F&amp;Q</a></li><li><a class="sb-link" href="./about.html">About</a></li></ul></nav>
+  <main class="docs-main">
+    <article class="doc-article">
+      <h1 class="doc-h1">F&amp;Q</h1>
+      <h2 id="why-does-the-table-of-contents-sometimes-not-appear-or-only-show-a-partial-table-of-contents">Why does the table of contents sometimes not appear or only show a partial table of contents?</h2>
+<p>Due to performance and plugin injection timing constraints, Notion Flow's table of contents function may not always be 100% in sync with updates. In this case, you need to manually enter some content, click on the page, or refresh the page to trigger an update of the table of contents.</p>
+<h2 id="why-does-the-sidebar-in-notion-flow-automatically-close-when-i-switch-to-another-tab-in-edge-and-then-switch-back">Why does the sidebar in Notion Flow automatically close when I switch to another tab in Edge and then switch back?</h2>
+<p>This was a bug common to both Chrome and Edge, but Chrome has fixed it while <strong>Edge has not yet fixed it</strong>. Currently, no solution has been found. If you have a solution, please let me know. The error is as follows:</p>
+<p><img src="../../assets/docs-img/docs/ms-bug.png" alt="ms-bug-png"></p>
+<pre class="code"><code class="language-text">Uncaught (in promise) Error: `sidePanel.open()` may only be called in response to a user gesture.
+</code></pre><p>see bug report:</p>
+<p><a href="https://github.com/microsoft/MicrosoftEdge-Extensions/discussions/95#discussioncomment-7818005">https://github.com/microsoft/MicrosoftEdge-Extensions/discussions/95#discussioncomment-7818005</a></p>
+<p>and:</p>
+<p><a href="https://github.com/microsoft/MicrosoftEdge-Extensions/issues/142">https://github.com/microsoft/MicrosoftEdge-Extensions/issues/142</a></p>
+<h2 id="why-does-the-publishing-function-require-so-many-tokens-and-is-it-secure">Why does the publishing function require so many tokens and is it secure?</h2>
+<p>Notion Flow guarantees that it will not collect any user privacy, and all tokens are saved locally on the user's device and not uploaded to any server. You can confirm this by checking the Network panel in devtools.</p>
+<h2 id="will-there-be-a-fee-in-the-future">Will there be a fee in the future?</h2>
+<p>Because this feature is too niche, it won't make money in the short term, so it's better to offer it for free to everyone and have some fun. If this plugin helps you and for better development, please consider <a href="./index.html#support-my-development-work">donating</a>.</p>
+<p>Additionally, adding a fee feature would require using servers, and I don't want to deal with that hassle. In my daily use, I only use this plugin on the front-end, so setting up servers would deviate from the original intention. It's possible, but not necessary.</p>
+<h2 id="why-is-it-not-open-source">Why is it not open source?</h2>
+<p>To prevent it from being packaged and sold by some people after being open-sourced.</p>
+<h2 id="where-can-i-provide-feedback-report-bugs">Where can I provide feedback/ report bugs?</h2>
+<p>There are <a href="https://github.com/Xheldon/Notion-Flow-Prod/discussions">Discussions</a> and <a href="https://github.com/Xheldon/Notion-Flow-Prod/issues">issues</a> on Github for reporting bugs.</p>
+<p>Also, Notion Flow has its own feature roadmap, so if you want to customize it, please consider <a href="./index.html#support-my-development-work">donating</a>.oadmap, so if you want to customize it, please consider <a href="./index.html#support-my-development-work">donating</a>.</p>
+
+    </article>
+    <div class="pager"><a class="pager-prev" href="./advanced/index.html"><span>← Previous</span><b>Advanced</b></a><a class="pager-next" href="./about.html"><span>Next →</span><b>About</b></a></div>
+  </main>
+</div>
+<footer class="footer"><div class="container">
+    <div class="copyright">© <span id="y">2026</span> Xheldon · Notion Flow</div>
+  </div></footer>
+  <script>document.getElementById('y').textContent=new Date().getFullYear();
+  // 移动端侧边栏
+  var t=document.querySelector('.sb-toggle');if(t){t.addEventListener('click',function(){document.querySelector('.docs-sidebar').classList.toggle('open')})}
+  </script>
+</body>
+</html>

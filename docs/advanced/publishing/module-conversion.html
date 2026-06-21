@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>模块转换 · Notion Flow 文档</title>
+<link rel="icon" href="../../../assets/favicon.ico" />
+<link rel="stylesheet" href="../../../assets/styles.css" />
+<link rel="stylesheet" href="../../../assets/docs.css" />
+</head>
+<body class="docs-body">
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="../../../index.html"><img src="../../../assets/icon.png" alt="" /><span>Notion Flow</span></a>
+    <nav class="nav-links">
+      <a href="../../../index.html#features">功能</a>
+      <a href="./">文档</a>
+      <a href="https://github.com/Xheldon/Notion-Flow-Prod/discussions" target="_blank" rel="noopener">问题反馈</a>
+      <a class="lang" href="../../../en/docs/">EN</a>
+    </nav>
+  </div>
+</header>
+<div class="docs-shell container">
+  <button class="sb-toggle" aria-label="menu">☰ 文档</button>
+  <nav class="docs-sidebar"><div class="sb-head">Notion Flow 文档</div><ul class="sb-list"><li><a class="sb-link" href="../../index.html">前言</a></li><li class="sb-group"><a class="sb-link sb-cat" href="../../basic/index.html">基本功能</a><ul class="sb-sub"><li><a class="sb-link" href="../../basic/toc.html">目录</a></li><li><a class="sb-link" href="../../basic/shortcuts.html">快捷操作</a></li></ul></li><li class="sb-group"><a class="sb-link sb-cat" href="../index.html">高级功能</a><ul class="sb-sub"><li class="sb-group"><a class="sb-link sb-cat" href="./index.html">发布</a><ul class="sb-sub"><li><a class="sb-link" href="./workflow.html">总体流程</a></li><li class="sb-group"><a class="sb-link sb-cat" href="./before-starting/index.html">前置工作</a><ul class="sb-sub"><li><a class="sb-link" href="./before-starting/notion.html">Notion 配置</a></li><li><a class="sb-link" href="./before-starting/github.html">Github 配置</a></li><li class="sb-group"><a class="sb-link sb-cat" href="./before-starting/oss/index.html">图片处理</a><ul class="sb-sub"><li><a class="sb-link" href="./before-starting/oss/tencentcloud.html">腾讯云 COS</a></li><li><a class="sb-link" href="./before-starting/oss/alicloud.html">阿里云 OSS</a></li><li><a class="sb-link" href="./before-starting/oss/aws.html">AWS S3</a></li><li><a class="sb-link" href="./before-starting/oss/cdn.html">CDN</a></li></ul></li></ul></li><li><a class="sb-link" href="./plugin-configuration.html">配置插件</a></li><li><a class="sb-link active" href="./module-conversion.html">模块转换</a></li></ul></li><li class="sb-group"><a class="sb-link sb-cat" href="../ai/index.html">AI</a><ul class="sb-sub"><li><a class="sb-link" href="../ai/before-starting.html">开发中...</a></li></ul></li><li class="sb-group"><a class="sb-link sb-cat" href="../plugin/index.html">插件</a><ul class="sb-sub"><li><a class="sb-link" href="../plugin/before-starting.html">开发中...</a></li></ul></li></ul></li><li><a class="sb-link" href="../../faq.html">常见问题</a></li><li><a class="sb-link" href="../../about.html">关于</a></li></ul></nav>
+  <main class="docs-main">
+    <article class="doc-article">
+      <h1 class="doc-h1">模块转换</h1>
+      <h2 id="为什么要自定义转换">为什么要自定义转换？</h2>
+<p>Notion Flow 转换 Notion 内容的格式是按照 <a href="https://docs.github.com/zh/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax">Github 的 Markdown</a> 格式，但是 Notion 中的模块有些无法转换成标准 Markdown 格式，这里有两个典型场景：</p>
+<ul>
+<li>Notion Bookmark 在标准 Markdown 中无对应格式，Notion Flow 默认转成链接格式。</li>
+<li>Notion 中的图片中的 Caption，想要在博客中将其设置为图片的图片描述，Notion Flow 默认忽略该属性。</li>
+</ul>
+<h2 id="支持的模块">支持的模块</h2>
+<p>也许你不想要我给你预设好的 Notion 模块转 Markdown 格式，因此，本插件支持你自己写如何转换 Notion 模块，除了下面所述的三种模块不支持转换外，其他的全部模块均支持，有些模块为了方便我还添加了额外的属性（见下面）。</p>
+<h2 id="不支持的模块处理">不支持的模块处理</h2>
+<p>对于不支持的模块，如 embed、toggle、template 等，你需要自己按照下面描述的要求自行书写模块转换函数，如果一个模块不是标准 Markdown 模块，你又没有自己写对应的模块转换函数，那么该模块将会被忽略。</p>
+<h2 id="标准-markdown-不能转换的模块">标准 Markdown 不能转换的模块</h2>
+<p>列表类型，由于其在 Notion 中可以嵌套，因此其内的子元素是通过接口递归获取的，相对其他模块而言比较麻烦，而且它的 Markdown 语法比较统一，因此不支持自定义转换，其中包括：</p>
+<ul>
+<li>to_do</li>
+<li>numbered_list_item</li>
+<li>bulleted_list_item</li>
+</ul>
+<h2 id="额外添加的模块属性">额外添加的模块属性</h2>
+<p>各个模块的函数，除了 <a href="https://developers.notion.com/reference/block#block-type-objects">Notion 给的模块默认属性</a> 外，我还添加了额外的属性，各个模块额外属性分别如下(部分字段可能覆盖 Notion 模块字段， 如无特殊说明均为 <code>string</code>)：</p>
+<ul>
+<li>paragraph
+<ul>
+<li>text: 文本内容，不带格式</li>
+</ul>
+</li>
+<li>bookmark
+<ul>
+<li>title: 标题</li>
+<li>desc: 描述</li>
+<li>img: bookmark 左侧的小图片（地址是 bookmark 引用链接的 favicon，可能由于同源策略无法正确显示）</li>
+</ul>
+</li>
+<li>image
+<ul>
+<li>url: 图片地址（上传到 OSS 及添加 CDN 地址后的最终地址）</li>
+<li>caption: 图片描述<pre class="code"><code class="language-js">  // 内部处理为
+  `![${block.caption}](${block.url})`
+</code></pre></li>
+</ul>
+</li>
+<li>heading_1/2/3
+<ul>
+<li>text: 文本内容，不带格式</li>
+</ul>
+</li>
+<li>table
+<ul>
+<li>rows: 表格的 <a href="https://developers.notion.com/reference/block#table-rows">row</a> 子元素列表，里面包含了 cells 字段，具体参看 Notion API 文档，内部对此的默认处理是：<pre class="code"><code class="language-js">block.rows.reduce((prev: string, curr: string, index: number) =&gt; {
+  const cells = curr[curr.type].cells;
+  let divider = '';
+  const cellsString = cells.map((cell: any, key: number) =&gt; {
+      // Note: cell is rich_text, here transform to string
+      const str = `| ${_inline(cell)} `;
+      if (key === cells.length - 1) {
+          divider += `| ---------- |\n`;
+          return `${str}|`
+      }
+      divider += `| ---------- `;
+      return str;
+  }).join('');
+  return prev += `${cellsString}\n${index === 0 ? divider : ''}`;
+}, '')
+</code></pre></li>
+</ul>
+</li>
+<li>quote
+<ul>
+<li>text: 文本内容，不带格式</li>
+<li>color: quote 左侧的边框颜色，从 Notion 官网窃得</li>
+</ul>
+</li>
+<li>callout
+<ul>
+<li>icon: callout 左侧的图标</li>
+<li>text: 文本内容，不带格式</li>
+<li>color: callout 字体颜色</li>
+<li>bgColor: callout 背景颜色</li>
+</ul>
+</li>
+<li>divider
+<ul>
+<li>无额外属性</li>
+</ul>
+</li>
+<li>video（包括文件类型和 Youtube、Bilibili 外部链接）
+<ul>
+<li>block.type === 'file'
+<ul>
+<li>url: 上传到 OSS 后同时加上 CDN 地址的最终地址</li>
+<li>caption: 视频描述</li>
+<li>suffix: 视频后缀</li>
+</ul>
+</li>
+<li>block.type === 'external'
+<ul>
+<li>yid: YouTube 的视频 id</li>
+<li>bid: Bilibili 的视频 id</li>
+<li>caption: 视频的描述</li>
+<li>url: 外部视频地址</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>code
+<ul>
+<li>text: 代码文本内容，不带格式</li>
+</ul>
+</li>
+<li>equation
+<ul>
+<li>text: 公式文本内容，不带格式</li>
+</ul>
+</li>
+</ul>
+<h2 id="如何使用自定义模块转换">如何使用自定义模块转换？</h2>
+<p>首先在插件配置中打开发布功能（废话），然后在「模块处理插件」中，书写对应代码即可：</p>
+<p><img src="../../../assets/docs-img/docs/transform-1.png" alt="Image"></p>
+<h2 id="书写格式要求">书写格式要求</h2>
+<div class="adm adm-tip">
+<p class="adm-title">提示</p>
+<p>如果书写的函数不符合要求，将使用默认的模块转换逻辑。</p>
+</div>
+<p>配置书写非常简单，只要满足以下条件即可：</p>
+<ol>
+<li>
+<p>配置是一个对象，对象的键为模块名，值 <strong>必须为带有函数名</strong> 的函数，使用匿名函数将会报错，如</p>
+<pre class="code"><code class="language-js">{
+  bookmark: function (block) {} // Error！
+}
+</code></pre></li>
+<li>
+<p>配置对象首行不能为空。</p>
+</li>
+<li>
+<p>配置对象的键对应的函数值，参数即为上面所述的模块（加上我给的额外属性），名字为 <code>block</code>。</p>
+</li>
+<li>
+<p>函数的返回值即为最终的模块转换成 Markdown 的值。</p>
+</li>
+</ol>
+<p>配置举例：</p>
+<pre class="code"><code class="language-js">{ // &lt;-- 首行不能为空！
+  bookmark: function any_name_you_want(block) {
+    return `[${block.title}](${block.url})`;
+  },
+  image: function any_name_you_want(block) {
+    return `![${block.caption}](${block.url})`;
+  }
+}
+</code></pre>
+    </article>
+    <div class="pager"><a class="pager-prev" href="./plugin-configuration.html"><span>← 上一页</span><b>配置插件</b></a><a class="pager-next" href="./index.html"><span>下一页 →</span><b>发布</b></a></div>
+  </main>
+</div>
+<footer class="footer"><div class="container">
+    <div class="copyright">© <span id="y">2026</span> Xheldon · Notion Flow</div>
+  </div></footer>
+  <script>document.getElementById('y').textContent=new Date().getFullYear();
+  // 移动端侧边栏
+  var t=document.querySelector('.sb-toggle');if(t){t.addEventListener('click',function(){document.querySelector('.docs-sidebar').classList.toggle('open')})}
+  </script>
+</body>
+</html>

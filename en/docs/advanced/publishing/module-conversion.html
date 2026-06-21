@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Module Conversion · Notion Flow Docs</title>
+<link rel="icon" href="../../../../assets/favicon.ico" />
+<link rel="stylesheet" href="../../../../assets/styles.css" />
+<link rel="stylesheet" href="../../../../assets/docs.css" />
+</head>
+<body class="docs-body">
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="../../../../en/index.html"><img src="../../../../assets/icon.png" alt="" /><span>Notion Flow</span></a>
+    <nav class="nav-links">
+      <a href="../../../../en/index.html#features">Features</a>
+      <a href="./">Docs</a>
+      <a href="https://github.com/Xheldon/Notion-Flow-Prod/discussions" target="_blank" rel="noopener">Feedback</a>
+      <a class="lang" href="../../../../docs/">中文</a>
+    </nav>
+  </div>
+</header>
+<div class="docs-shell container">
+  <button class="sb-toggle" aria-label="menu">☰ Docs</button>
+  <nav class="docs-sidebar"><div class="sb-head">Notion Flow Docs</div><ul class="sb-list"><li><a class="sb-link" href="../../index.html">Preface</a></li><li class="sb-group"><a class="sb-link sb-cat" href="../../basic/index.html">Basic</a><ul class="sb-sub"><li><a class="sb-link" href="../../basic/toc.html">Table of Contents</a></li><li><a class="sb-link" href="../../basic/shortcuts.html">Quick Operations</a></li></ul></li><li class="sb-group"><a class="sb-link sb-cat" href="../index.html">Advanced</a><ul class="sb-sub"><li class="sb-group"><a class="sb-link sb-cat" href="./index.html">Publish to Github</a><ul class="sb-sub"><li><a class="sb-link" href="./workflow.html">Overall Process</a></li><li class="sb-group"><a class="sb-link sb-cat" href="./before-starting/index.html">Before starting</a><ul class="sb-sub"><li><a class="sb-link" href="./before-starting/notion.html">Notion Configuration</a></li><li><a class="sb-link" href="./before-starting/github.html">Github Configuration</a></li><li class="sb-group"><a class="sb-link sb-cat" href="./before-starting/oss/index.html">Image Processing</a><ul class="sb-sub"><li><a class="sb-link" href="./before-starting/oss/tencentcloud.html">Tencent Cloud COS</a></li><li><a class="sb-link" href="./before-starting/oss/alicloud.html">Alibaba Cloud OSS</a></li><li><a class="sb-link" href="./before-starting/oss/aws.html">AWS S3</a></li><li><a class="sb-link" href="./before-starting/oss/cdn.html">CDN</a></li></ul></li></ul></li><li><a class="sb-link" href="./plugin-configuration.html">Configuration of Plugins</a></li><li><a class="sb-link active" href="./module-conversion.html">Module Conversion</a></li></ul></li><li class="sb-group"><a class="sb-link sb-cat" href="../ai/index.html">AI</a><ul class="sb-sub"><li><a class="sb-link" href="../ai/before-starting.html">WIP</a></li></ul></li><li class="sb-group"><a class="sb-link sb-cat" href="../plugin/index.html">Plugins</a><ul class="sb-sub"><li><a class="sb-link" href="../plugin/before-starting.html">WIP</a></li></ul></li></ul></li><li><a class="sb-link" href="../../faq.html">F&amp;Q</a></li><li><a class="sb-link" href="../../about.html">About</a></li></ul></nav>
+  <main class="docs-main">
+    <article class="doc-article">
+      <h1 class="doc-h1">Module Conversion</h1>
+      <h2 id="why-customize-conversion">Why Customize Conversion?</h2>
+<p>The formatting of Notion Flow content is based on <a href="https://docs.github.com/zh/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax">Github Markdown</a>, but some modules in Notion cannot be converted into standard Markdown format. There are two typical scenarios:</p>
+<ul>
+<li>Notion Bookmark does not have a corresponding format in standard Markdown. Notion Flow defaults to link format.</li>
+<li>The Caption in images in Notion, if you want to set it as the image description in a blog, Notion Flow will ignore this property by default.</li>
+</ul>
+<h2 id="supported-modules">Supported Modules</h2>
+<p>Perhaps you don't want me to pre-set the Notion module to Markdown format for you, so this plugin supports you in writing how to convert Notion modules yourself. Besides the three unsupported modules described below, all other modules are supported, and I have even added additional properties for some modules for your convenience.</p>
+<h2 id="unsupported-module-handling">Unsupported Module Handling</h2>
+<p>For unsupported modules such as embed, toggle, template, etc., you need to write the module conversion function yourself according to the requirements described below. If a module is not a standard Markdown module and you haven't written the corresponding module conversion function, then that module will be ignored.</p>
+<h2 id="modules-not-convertible-to-standard-markdown">Modules Not Convertible to Standard Markdown</h2>
+<p>Due to the nesting capability of lists in Notion, their child elements are obtained through the interface recursively, which is more complicated compared to other modules. The Markdown syntax for lists is relatively uniform, so custom conversion is not supported. This includes:</p>
+<ul>
+<li>to_do</li>
+<li>numbered_list_item</li>
+<li>bulleted_list_item</li>
+</ul>
+<h2 id="additional-module-properties">Additional Module Properties</h2>
+<p>In addition to the <a href="https://developers.notion.com/reference/block#block-type-objects">default properties of Notion modules</a>, I have added additional properties for each module. The additional properties for each module are as follows (some fields may override Notion module fields unless otherwise specified, they are all <code>string</code>):</p>
+<ul>
+<li>paragraph
+<ul>
+<li>text: Text content without formatting</li>
+</ul>
+</li>
+<li>bookmark
+<ul>
+<li>title: Title</li>
+<li>desc: Description</li>
+<li>img: Small image on the left side of the bookmark (address is the favicon of the bookmark reference link, may not display correctly due to the same-origin policy)</li>
+</ul>
+</li>
+<li>image
+<ul>
+<li>url: Image address (final address after uploading to OSS and adding CDN address)</li>
+<li>caption: Image description<pre class="code"><code class="language-js">  // Processed internally as
+  `![${block.caption}](${block.url})`
+</code></pre></li>
+</ul>
+</li>
+<li>heading_1/2/3
+<ul>
+<li>text: Text content without formatting</li>
+</ul>
+</li>
+<li>table
+<ul>
+<li>rows: List of <a href="https://developers.notion.com/reference/block#table-rows">row</a> child elements of the table, which includes the cells field, see the Notion API documentation for details. The default processing internally is:<pre class="code"><code class="language-js">block.rows.reduce((prev: string, curr: string, index: number) =&gt; {
+  const cells = curr[curr.type].cells;
+  let divider = '';
+  const cellsString = cells.map((cell: any, key: number) =&gt; {
+      // Note: cell is rich_text, here transform to string
+      const str = `| ${_inline(cell)} `;
+      if (key === cells.length - 1) {
+          divider += `| ---------- |\n`;
+          return `${str}|`
+      }
+      divider += `| ---------- `;
+      return str;
+  }).join('');
+  return prev += `${cellsString}\n${index === 0 ? divider : ''}`;
+}, '')
+</code></pre></li>
+</ul>
+</li>
+<li>quote
+<ul>
+<li>text: Text content without formatting</li>
+<li>color: Border color on the left side of the quote, stolen from the Notion website</li>
+</ul>
+</li>
+<li>callout
+<ul>
+<li>icon: Icon on the left side of the callout</li>
+<li>text: Text content without formatting</li>
+<li>color: Font color of the callout</li>
+<li>bgColor: Background color of the callout</li>
+</ul>
+</li>
+<li>divider
+<ul>
+<li>No additional properties</li>
+</ul>
+</li>
+<li>video (including file types and external links such as YouTube and Bilibili)
+<ul>
+<li>block.type === 'file'
+<ul>
+<li>url: Final address after uploading to OSS and adding CDN address</li>
+<li>caption: Video description</li>
+<li>suffix: Video suffix</li>
+</ul>
+</li>
+<li>block.type === 'external'
+<ul>
+<li>yid: YouTube video id</li>
+<li>bid: Bilibili video id</li>
+<li>caption: Video description</li>
+<li>url: External video address</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>code
+<ul>
+<li>text: Code text content without formatting</li>
+</ul>
+</li>
+<li>equation
+<ul>
+<li>text: Formula text content without formatting</li>
+</ul>
+</li>
+</ul>
+<h2 id="how-to-use-custom-module-conversion">How to Use Custom Module Conversion?</h2>
+<p>First, open the publishing function in the plugin configuration (obviously). Then, in the &quot;Module Processing Plugin&quot;, simply write the corresponding code:</p>
+<p><img src="../../../../assets/docs-img/docs/transform-1.png" alt="Image"></p>
+<h2 id="formatting-requirements">Formatting Requirements</h2>
+<div class="adm adm-tip">
+<p class="adm-title">Tip</p>
+<p>If the written function does not meet the requirements, the default module conversion logic will be used.</p>
+</div>
+<p>The configuration writing is very simple, just meet the following conditions:</p>
+<ol>
+<li>
+<p>The configuration is an object, where the keys are module names, and the values must be functions with a function name. Using an anonymous function will cause an error, such as</p>
+<pre class="code"><code class="language-js">{
+  bookmark: function (block) {} // Error!
+}
+</code></pre></li>
+<li>
+<p>The first line of the configuration object must not be empty.</p>
+</li>
+<li>
+<p>The function value associated with the key in the configuration object takes the module (along with the additional properties I provided) as a parameter, and the name is <code>block</code>.</p>
+</li>
+<li>
+<p>The return value of the function is the final Markdown value after converting the module.</p>
+</li>
+</ol>
+<p>Configuration example:</p>
+<pre class="code"><code class="language-js">{ // &lt;-- First line must not be empty!
+  bookmark: function any_name_you_want(block) {
+    return `[${block.title}](${block.url})`;
+  },
+  image: function any_name_you_want(block) {
+    return `![${block.caption}](${block.url})`;
+  }
+}
+</code></pre>
+    </article>
+    <div class="pager"><a class="pager-prev" href="./plugin-configuration.html"><span>← Previous</span><b>Configuration of Plugins</b></a><a class="pager-next" href="./index.html"><span>Next →</span><b>Publish to Github</b></a></div>
+  </main>
+</div>
+<footer class="footer"><div class="container">
+    <div class="copyright">© <span id="y">2026</span> Xheldon · Notion Flow</div>
+  </div></footer>
+  <script>document.getElementById('y').textContent=new Date().getFullYear();
+  // 移动端侧边栏
+  var t=document.querySelector('.sb-toggle');if(t){t.addEventListener('click',function(){document.querySelector('.docs-sidebar').classList.toggle('open')})}
+  </script>
+</body>
+</html>

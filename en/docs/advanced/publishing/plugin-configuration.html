@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Configuration of Plugins · Notion Flow Docs</title>
+<link rel="icon" href="../../../../assets/favicon.ico" />
+<link rel="stylesheet" href="../../../../assets/styles.css" />
+<link rel="stylesheet" href="../../../../assets/docs.css" />
+</head>
+<body class="docs-body">
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="../../../../en/index.html"><img src="../../../../assets/icon.png" alt="" /><span>Notion Flow</span></a>
+    <nav class="nav-links">
+      <a href="../../../../en/index.html#features">Features</a>
+      <a href="./">Docs</a>
+      <a href="https://github.com/Xheldon/Notion-Flow-Prod/discussions" target="_blank" rel="noopener">Feedback</a>
+      <a class="lang" href="../../../../docs/">中文</a>
+    </nav>
+  </div>
+</header>
+<div class="docs-shell container">
+  <button class="sb-toggle" aria-label="menu">☰ Docs</button>
+  <nav class="docs-sidebar"><div class="sb-head">Notion Flow Docs</div><ul class="sb-list"><li><a class="sb-link" href="../../index.html">Preface</a></li><li class="sb-group"><a class="sb-link sb-cat" href="../../basic/index.html">Basic</a><ul class="sb-sub"><li><a class="sb-link" href="../../basic/toc.html">Table of Contents</a></li><li><a class="sb-link" href="../../basic/shortcuts.html">Quick Operations</a></li></ul></li><li class="sb-group"><a class="sb-link sb-cat" href="../index.html">Advanced</a><ul class="sb-sub"><li class="sb-group"><a class="sb-link sb-cat" href="./index.html">Publish to Github</a><ul class="sb-sub"><li><a class="sb-link" href="./workflow.html">Overall Process</a></li><li class="sb-group"><a class="sb-link sb-cat" href="./before-starting/index.html">Before starting</a><ul class="sb-sub"><li><a class="sb-link" href="./before-starting/notion.html">Notion Configuration</a></li><li><a class="sb-link" href="./before-starting/github.html">Github Configuration</a></li><li class="sb-group"><a class="sb-link sb-cat" href="./before-starting/oss/index.html">Image Processing</a><ul class="sb-sub"><li><a class="sb-link" href="./before-starting/oss/tencentcloud.html">Tencent Cloud COS</a></li><li><a class="sb-link" href="./before-starting/oss/alicloud.html">Alibaba Cloud OSS</a></li><li><a class="sb-link" href="./before-starting/oss/aws.html">AWS S3</a></li><li><a class="sb-link" href="./before-starting/oss/cdn.html">CDN</a></li></ul></li></ul></li><li><a class="sb-link active" href="./plugin-configuration.html">Configuration of Plugins</a></li><li><a class="sb-link" href="./module-conversion.html">Module Conversion</a></li></ul></li><li class="sb-group"><a class="sb-link sb-cat" href="../ai/index.html">AI</a><ul class="sb-sub"><li><a class="sb-link" href="../ai/before-starting.html">WIP</a></li></ul></li><li class="sb-group"><a class="sb-link sb-cat" href="../plugin/index.html">Plugins</a><ul class="sb-sub"><li><a class="sb-link" href="../plugin/before-starting.html">WIP</a></li></ul></li></ul></li><li><a class="sb-link" href="../../faq.html">F&amp;Q</a></li><li><a class="sb-link" href="../../about.html">About</a></li></ul></nav>
+  <main class="docs-main">
+    <article class="doc-article">
+      <h1 class="doc-h1">Configuration of Plugins</h1>
+      <div class="adm adm-tip">
+<p class="adm-title">Tip</p>
+<p>As the plugin versions are updated, the configuration interface may change in the future, but the related configuration item names will not change, so please refer to the actual interface.</p>
+</div>
+<h2 id="notion-configuration">Notion Configuration</h2>
+<p>Notion Flow uses the Notion API to read the content of Notion Pages, which requires the use of a <a href="https://developers.notion.com/docs/authorization#internal-integration-auth-flow-set-up">Notion Integration Token</a>.</p>
+<p>Enter the Notion Integration Token obtained in <a href="./before-starting/notion.html">Notion Configuration</a> here:</p>
+<p><img src="../../../../assets/docs-img/docs/config-1.png" alt="Image"></p>
+<div class="adm adm-tip">
+<p class="adm-title">Tip</p>
+<p>Don't forget to <a href="./before-starting/notion.html#authorize-the-database">authorize</a> the Notion Database you want to publish!</p>
+</div>
+<h2 id="github-configuration">Github Configuration</h2>
+<p>Notion Flow uses the Github Personal Token to publish content to a Github repository.</p>
+<p>Enter the Github information obtained in <a href="./before-starting/github.html">Github Configuration</a> here:</p>
+<p><img src="../../../../assets/docs-img/docs/config-2.png" alt="Image"></p>
+<h3 id="enable-front-matter">Enable Front Matter</h3>
+<p><img src="../../../../assets/docs-img/docs/config-2.1.png" alt="Image"></p>
+<p>When this option is turned on, Notion Flow will automatically add Front Matter to the top of the Markdown file when publishing a blog. The format is the content enclosed with three short slashes at the beginning and end, for example:</p>
+<pre class="code"><code class="language-yaml">---
+name: My article
+date: 2024-01-11
+---
+</code></pre><div class="adm adm-tip">
+<p class="adm-title">Tip</p>
+<p>Common blogging systems' support for Front Matter can be viewed by clicking the corresponding link to learn more: <a href="https://jekyllrb.com/docs/front-matter/">Jekyll</a>, <a href="https://hexo.io/docs/front-matter.html">Hexo</a>, <a href="https://gohugo.io/content-management/front-matter/">Hugo</a>, <a href="https://vitepress.dev/guide/frontmatter">VitePress</a>, and more.</p>
+</div>
+<h2 id="file-upload-path-image-path">File Upload Path / Image Path</h2>
+<div class="adm adm-warning">
+<p class="adm-title">Note</p>
+<p>If the image upload path is not configured, images or other resources will be ignored.</p>
+</div>
+<p><img src="../../../../assets/docs-img/docs/config-3.1.png" alt="Image"></p>
+<p>Enter the file upload path to the Github repository or the path to upload images to the OSS. You can use <code>{{}}</code> to reference Notion Pages Properties as well as four time placeholders, including:</p>
+<ul>
+<li><code>YYYY</code> for year, such as 2024</li>
+<li><code>YY</code> for abbreviated year, such as 24</li>
+<li><code>MM</code> for month, such as 01</li>
+<li><code>DD</code> for day, such as 01</li>
+</ul>
+<p>For example, if the Properties in my Notion Pages are:</p>
+<ul>
+<li>category: life (or tech)</li>
+<li>name: my-article-name (value varies for different article names, but unique)</li>
+</ul>
+<p>So I would fill in the file upload path as: <code>_posts/{{category}}/{{YYYY}}/{{YYYY}}-{{MM}}-{{DD}}-{{name}}.md</code> (note the format, as the file you upload to Github also supports <code>.html</code>), and the processed output by Notion Flow will be <code>_posts/life/2024/2024-01-11-my-article-name.md</code>.</p>
+<p>The image path I filled in would be: <code>img/in-post/{{YYYY}}/{{name}}</code>, and the real address after processing would be <code>img/in-post/2024/my-article-name/29c1c887-e773-40b5-9ea1-fb8c3cc703dd.webp</code>.</p>
+<div class="adm adm-tip">
+<p class="adm-title">Tip</p>
+<p>Note that <code>webp</code> is the default image format used for uploading images. Except for the media formats <code>gif</code>, <code>svg</code>, <code>mp4</code>, <code>webm</code>, and <code>ogg</code>, all other formats such as <code>png</code>, <code>jpg</code>, <code>jpeg</code>, etc., will be converted to webp.</p>
+</div>
+<h2 id="oss-configuration">OSS Configuration</h2>
+<div class="adm adm-warning">
+<p class="adm-title">Note</p>
+<p>If the OSS is not configured, images or other resources will be ignored.</p>
+</div>
+<p>You can choose from three different OSS service providers and fill in your OSS information, which can be found in the <a href="./before-starting/oss/index.html">here</a> to obtain the steps. Enter the corresponding names:</p>
+<p><img src="../../../../assets/docs-img/docs/config-3.png" alt="Image"></p>
+<div class="adm adm-tip">
+<p class="adm-title">Tip</p>
+<p>Except for the first two names being different, the other names are the same. For example, the Key is called AccessKey ID in Alibaba Cloud, SecretId in Tencent Cloud, and Access Key in AWS. The Secret is called AccessKey Secret in Alibaba Cloud, SecretKey in Tencent Cloud, and Secret Access Key in AWS.</p>
+</div>
+<h2 id="cdn-address-configuration">CDN Address Configuration</h2>
+<div class="adm adm-warning">
+<p class="adm-title">Note</p>
+<p>If the CDN path is not configured, images or other resources will be ignored.</p>
+</div>
+<p>Set the CDN address here. After uploading Notion images to the OSS service, Notion Flow will use this address to concatenate the complete image address and then write the address into the Markdown. For example, my configuration is <code>http://static.xheldon.cn</code>.</p>
+<h2 id="automatically-add-lastupdatetime">Automatically Add <code>lastUpdateTime</code></h2>
+<p>For articles, especially technical documentation, timely information about the last update is often important. Therefore, Notion Flow supports automatically adding the <code>lastUpdateTime</code> field. Simply open this toggle, and each time Notion Flow publishes a blog, it will automatically add the <code>lastUpdateTime</code> field to the Front Matter.
+Then, you can use this field in your blog, as I do:</p>
+<p><img src="../../../../assets/docs-img/docs/config-4.png" alt="Image"></p>
+<p>The result would look like this:
+<img src="../../../../assets/docs-img/docs/config-5.png" alt="Image"></p>
+<h2 id="automatically-update-lastupdatetime">Automatically Update <code>lastUpdateTime</code></h2>
+<div class="adm adm-warning">
+<p class="adm-title">Note</p>
+<p>You need to manually add the <code>lastUpdateTime</code> Properties field in the Notion Pages and the Notion plugin requires read-write permissions.</p>
+</div>
+<p><img src="../../../../assets/docs-img/docs/config-3.2.png" alt="Image"></p>
+<p>After using Notion Flow to publish a Notion article to a blog, you may want to know if and when the article was published when viewing that page in Notion at a later time. Therefore, this option will update the <code>lastUpdateTime</code> field of that page using the Notion API after the blog is successfully published.</p>
+<h2 id="other-front-matter-fields">Other Front Matter Fields</h2>
+<p>Notion Pages' Property settings are used to configure Front Matter related to the page, such as name, date, tags, etc. The Front Matter configuration here is used to configure fixed Front Matter that does not change.</p>
+<p>When writing a blog, you may need to set some fixed Front Matter fields, such as <code>layout: post</code>. Therefore, Notion Flow supports configuring fixed Front Matter fields here, which will be automatically added to the Front Matter each time a blog is published.</p>
+<div class="adm adm-tip">
+<p class="adm-title">Tip</p>
+<p>Front Matter is comma separated, and spaces before and after commas and colons are ignored, such as <code>layout: post, title: My article title</code>.</p>
+</div>
+<h2 id="front-matter-fields-for-header-images">Front Matter Fields for Header Images</h2>
+<p>If you open this option, the header image set in the Notion Pages will be added to the Front Matter. The field set here is the name of the header image field in the Front Matter. For example, my header image field is <code>header-img</code>, and after publishing the blog it will be <code>header-img: xxx</code> (where xxx is the header image address uploaded to OSS).</p>
+<p>Note that leaving this input blank means that the header image feature is not used, and the Notion Pages' set header image will be ignored when publishing.</p>
+
+    </article>
+    <div class="pager"><a class="pager-prev" href="./before-starting/index.html"><span>← Previous</span><b>Before starting</b></a><a class="pager-next" href="./module-conversion.html"><span>Next →</span><b>Module Conversion</b></a></div>
+  </main>
+</div>
+<footer class="footer"><div class="container">
+    <div class="copyright">© <span id="y">2026</span> Xheldon · Notion Flow</div>
+  </div></footer>
+  <script>document.getElementById('y').textContent=new Date().getFullYear();
+  // 移动端侧边栏
+  var t=document.querySelector('.sb-toggle');if(t){t.addEventListener('click',function(){document.querySelector('.docs-sidebar').classList.toggle('open')})}
+  </script>
+</body>
+</html>

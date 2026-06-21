@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Alibaba Cloud OSS · Notion Flow Docs</title>
+<link rel="icon" href="../../../../../../assets/favicon.ico" />
+<link rel="stylesheet" href="../../../../../../assets/styles.css" />
+<link rel="stylesheet" href="../../../../../../assets/docs.css" />
+</head>
+<body class="docs-body">
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="../../../../../../en/index.html"><img src="../../../../../../assets/icon.png" alt="" /><span>Notion Flow</span></a>
+    <nav class="nav-links">
+      <a href="../../../../../../en/index.html#features">Features</a>
+      <a href="./">Docs</a>
+      <a href="https://github.com/Xheldon/Notion-Flow-Prod/discussions" target="_blank" rel="noopener">Feedback</a>
+      <a class="lang" href="../../../../../../docs/">中文</a>
+    </nav>
+  </div>
+</header>
+<div class="docs-shell container">
+  <button class="sb-toggle" aria-label="menu">☰ Docs</button>
+  <nav class="docs-sidebar"><div class="sb-head">Notion Flow Docs</div><ul class="sb-list"><li><a class="sb-link" href="../../../../index.html">Preface</a></li><li class="sb-group"><a class="sb-link sb-cat" href="../../../../basic/index.html">Basic</a><ul class="sb-sub"><li><a class="sb-link" href="../../../../basic/toc.html">Table of Contents</a></li><li><a class="sb-link" href="../../../../basic/shortcuts.html">Quick Operations</a></li></ul></li><li class="sb-group"><a class="sb-link sb-cat" href="../../../index.html">Advanced</a><ul class="sb-sub"><li class="sb-group"><a class="sb-link sb-cat" href="../../index.html">Publish to Github</a><ul class="sb-sub"><li><a class="sb-link" href="../../workflow.html">Overall Process</a></li><li class="sb-group"><a class="sb-link sb-cat" href="../index.html">Before starting</a><ul class="sb-sub"><li><a class="sb-link" href="../notion.html">Notion Configuration</a></li><li><a class="sb-link" href="../github.html">Github Configuration</a></li><li class="sb-group"><a class="sb-link sb-cat" href="./index.html">Image Processing</a><ul class="sb-sub"><li><a class="sb-link" href="./tencentcloud.html">Tencent Cloud COS</a></li><li><a class="sb-link active" href="./alicloud.html">Alibaba Cloud OSS</a></li><li><a class="sb-link" href="./aws.html">AWS S3</a></li><li><a class="sb-link" href="./cdn.html">CDN</a></li></ul></li></ul></li><li><a class="sb-link" href="../../plugin-configuration.html">Configuration of Plugins</a></li><li><a class="sb-link" href="../../module-conversion.html">Module Conversion</a></li></ul></li><li class="sb-group"><a class="sb-link sb-cat" href="../../../ai/index.html">AI</a><ul class="sb-sub"><li><a class="sb-link" href="../../../ai/before-starting.html">WIP</a></li></ul></li><li class="sb-group"><a class="sb-link sb-cat" href="../../../plugin/index.html">Plugins</a><ul class="sb-sub"><li><a class="sb-link" href="../../../plugin/before-starting.html">WIP</a></li></ul></li></ul></li><li><a class="sb-link" href="../../../../faq.html">F&amp;Q</a></li><li><a class="sb-link" href="../../../../about.html">About</a></li></ul></nav>
+  <main class="docs-main">
+    <article class="doc-article">
+      <h1 class="doc-h1">Alibaba Cloud OSS</h1>
+      <blockquote>
+<p>Alibaba Cloud Object Storage Service (OSS) is a massive, secure, low-cost, and highly reliable cloud storage service that provides up to 99.995% service availability. It offers multiple storage types to choose from and fully optimizes storage costs. Visit the official website <a href="https://www.alibabacloud.com/product/oss">Alibaba Cloud OSS</a>.</p>
+</blockquote>
+<div class="adm adm-tip">
+<p class="adm-title">Tip</p>
+<p>If you don't have Alibaba Cloud OSS service, you need to first <a href="https://common-buy.alibabacloud.com/?commodityCode=ossbag">purchase</a>, and after creating, you need to enable the OSS service (seems redundant, I've already bought the resource package, shouldn't it be automatically enabled for me🤣). I purchased the OSS resource package, standard-local redundant storage, China mainland common, 40GB, for 6 months, costing 4.98 yuan (because I didn't buy the acceleration traffic package, the price for single storage is actually similar to Tencent Cloud).</p>
+</div>
+<h2 id="obtain-create-bucket-and-region">Obtain (Create) Bucket and Region</h2>
+<p>Go to the <a href="https://oss.console.alibabacloud.com/bucket">Alibaba Cloud Object Storage OSS console</a> and click on &quot;Create Bucket.&quot; Then configure according to your needs:</p>
+<p><img src="../../../../../../assets/docs-img/docs/oss-token-5.png" alt="Image"></p>
+<p>Take note of the Bucket name and the region, as you will need them later.</p>
+<div class="adm adm-tip">
+<p class="adm-title">Tip</p>
+<p>Unlike Tencent Cloud, Alibaba Cloud's region codes need to be found by yourself and are not directly provided in the console. Here is a <a href="https://www.alibabacloud.com/help/doc-detail/31837.htm">reference table</a>. As shown in the image above, my Bucket name is <code>notion-blog</code> and the region is <code>North China 2 (Beijing)</code>, corresponding to the code <code>oss-cn-beijing</code>.</p>
+</div>
+<h2 id="obtain-accesskey-id-and-assesskey-secret">Obtain AccessKey Id and AssessKey Secret</h2>
+<p>Go to the <a href="https://ram.console.alibabacloud.com/manage/ak">Alibaba Cloud AccessKey management page</a> and click on &quot;Continue to use AccessKey&quot; (you can also use sub-accounts, but that's not covered here), then record the AccessKey Id and AccessKey Secret, as they will be needed later. Please ensure to securely store these.</p>
+<p><img src="../../../../../../assets/docs-img/docs/oss-token-7.png" alt="Image"></p>
+
+    </article>
+    <div class="pager"><a class="pager-prev" href="./tencentcloud.html"><span>← Previous</span><b>Tencent Cloud COS</b></a><a class="pager-next" href="./aws.html"><span>Next →</span><b>AWS S3</b></a></div>
+  </main>
+</div>
+<footer class="footer"><div class="container">
+    <div class="copyright">© <span id="y">2026</span> Xheldon · Notion Flow</div>
+  </div></footer>
+  <script>document.getElementById('y').textContent=new Date().getFullYear();
+  // 移动端侧边栏
+  var t=document.querySelector('.sb-toggle');if(t){t.addEventListener('click',function(){document.querySelector('.docs-sidebar').classList.toggle('open')})}
+  </script>
+</body>
+</html>

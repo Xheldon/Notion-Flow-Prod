@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>阿里云 OSS · Notion Flow 文档</title>
+<link rel="icon" href="../../../../../assets/favicon.ico" />
+<link rel="stylesheet" href="../../../../../assets/styles.css" />
+<link rel="stylesheet" href="../../../../../assets/docs.css" />
+</head>
+<body class="docs-body">
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="../../../../../index.html"><img src="../../../../../assets/icon.png" alt="" /><span>Notion Flow</span></a>
+    <nav class="nav-links">
+      <a href="../../../../../index.html#features">功能</a>
+      <a href="./">文档</a>
+      <a href="https://github.com/Xheldon/Notion-Flow-Prod/discussions" target="_blank" rel="noopener">问题反馈</a>
+      <a class="lang" href="../../../../../en/docs/">EN</a>
+    </nav>
+  </div>
+</header>
+<div class="docs-shell container">
+  <button class="sb-toggle" aria-label="menu">☰ 文档</button>
+  <nav class="docs-sidebar"><div class="sb-head">Notion Flow 文档</div><ul class="sb-list"><li><a class="sb-link" href="../../../../index.html">前言</a></li><li class="sb-group"><a class="sb-link sb-cat" href="../../../../basic/index.html">基本功能</a><ul class="sb-sub"><li><a class="sb-link" href="../../../../basic/toc.html">目录</a></li><li><a class="sb-link" href="../../../../basic/shortcuts.html">快捷操作</a></li></ul></li><li class="sb-group"><a class="sb-link sb-cat" href="../../../index.html">高级功能</a><ul class="sb-sub"><li class="sb-group"><a class="sb-link sb-cat" href="../../index.html">发布</a><ul class="sb-sub"><li><a class="sb-link" href="../../workflow.html">总体流程</a></li><li class="sb-group"><a class="sb-link sb-cat" href="../index.html">前置工作</a><ul class="sb-sub"><li><a class="sb-link" href="../notion.html">Notion 配置</a></li><li><a class="sb-link" href="../github.html">Github 配置</a></li><li class="sb-group"><a class="sb-link sb-cat" href="./index.html">图片处理</a><ul class="sb-sub"><li><a class="sb-link" href="./tencentcloud.html">腾讯云 COS</a></li><li><a class="sb-link active" href="./alicloud.html">阿里云 OSS</a></li><li><a class="sb-link" href="./aws.html">AWS S3</a></li><li><a class="sb-link" href="./cdn.html">CDN</a></li></ul></li></ul></li><li><a class="sb-link" href="../../plugin-configuration.html">配置插件</a></li><li><a class="sb-link" href="../../module-conversion.html">模块转换</a></li></ul></li><li class="sb-group"><a class="sb-link sb-cat" href="../../../ai/index.html">AI</a><ul class="sb-sub"><li><a class="sb-link" href="../../../ai/before-starting.html">开发中...</a></li></ul></li><li class="sb-group"><a class="sb-link sb-cat" href="../../../plugin/index.html">插件</a><ul class="sb-sub"><li><a class="sb-link" href="../../../plugin/before-starting.html">开发中...</a></li></ul></li></ul></li><li><a class="sb-link" href="../../../../faq.html">常见问题</a></li><li><a class="sb-link" href="../../../../about.html">关于</a></li></ul></nav>
+  <main class="docs-main">
+    <article class="doc-article">
+      <h1 class="doc-h1">阿里云 OSS</h1>
+      <blockquote>
+<p>阿里云对象存储 OSS（Object Storage Service）是一款海量、安全、低成本、高可靠的云存储服务，提供最高可达 99.995 % 的服务可用性。多种存储类型供选择，全面优化存储成本。官网地址见 <a href="https://cn.aliyun.com/product/oss">阿里云 OSS</a>。</p>
+</blockquote>
+<div class="adm adm-tip">
+<p class="adm-title">提示</p>
+<p>如果你没有阿里云 OSS 服务，你需要先 <a href="https://common-buy.aliyun.com/?commodityCode=ossbag">购买</a>，创建之后使用 OSS 服务还需要开通该服务（多此一举了算是，我资源包都买了，难道还不会给我自动开通吗🤣）。我买的配置是 OSS 资源包、标准-本地冗余存储、中国内地通用、40GB、6 个月，花费 4.98 元（因为我没买加速流量包，单存储的价格其实跟腾讯云价格差不多）。</p>
+</div>
+<h2 id="获取创建-bucket-和-region">获取（创建） Bucket 和 Region</h2>
+<p>进入 <a href="https://oss.console.aliyun.com/bucket">阿里云对象存储 OSS 控制台</a>，点击创建 Bucket，按照你的需求配置：</p>
+<p><img src="../../../../../assets/docs-img/docs/oss-token-5.png" alt="Image"></p>
+<p>记下这个 Bucket 名称和区域，后面会用到。</p>
+<div class="adm adm-tip">
+<p class="adm-title">提示</p>
+<p>与腾讯云不同的是，阿里云的区域需要自己找对应区域的代码，并未直接在控制台给出，这里是 <a href="https://help.aliyun.com/zh/oss/user-guide/regions-and-endpoints">对照表</a>。如上图中我的 Bucket 就是 <code>notion-blog</code>，区域是 <code>华北2（北京）</code>，对应的代码是 <code>oss-cn-beijing</code>。</p>
+</div>
+<h2 id="获取-accesskey-id-和-assesskey-secret">获取 AccessKey Id 和 AssessKey Secret</h2>
+<p>进入 <a href="https://ram.console.aliyun.com/manage/ak">阿里云 AccessKey 管理页面</a>，点击继续使用 AccessKey（你也可以使用子账号，这里不做介绍），记录下 AccessKey Id 和 AccessKey Secret，后面会用到，请务必安全保存。</p>
+<p><img src="../../../../../assets/docs-img/docs/oss-token-7.png" alt="Image"></p>
+
+    </article>
+    <div class="pager"><a class="pager-prev" href="./tencentcloud.html"><span>← 上一页</span><b>腾讯云 COS</b></a><a class="pager-next" href="./aws.html"><span>下一页 →</span><b>AWS S3</b></a></div>
+  </main>
+</div>
+<footer class="footer"><div class="container">
+    <div class="copyright">© <span id="y">2026</span> Xheldon · Notion Flow</div>
+  </div></footer>
+  <script>document.getElementById('y').textContent=new Date().getFullYear();
+  // 移动端侧边栏
+  var t=document.querySelector('.sb-toggle');if(t){t.addEventListener('click',function(){document.querySelector('.docs-sidebar').classList.toggle('open')})}
+  </script>
+</body>
+</html>

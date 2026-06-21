@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About · Notion Flow Docs</title>
+<link rel="icon" href="../../assets/favicon.ico" />
+<link rel="stylesheet" href="../../assets/styles.css" />
+<link rel="stylesheet" href="../../assets/docs.css" />
+</head>
+<body class="docs-body">
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="../../en/index.html"><img src="../../assets/icon.png" alt="" /><span>Notion Flow</span></a>
+    <nav class="nav-links">
+      <a href="../../en/index.html#features">Features</a>
+      <a href="./">Docs</a>
+      <a href="https://github.com/Xheldon/Notion-Flow-Prod/discussions" target="_blank" rel="noopener">Feedback</a>
+      <a class="lang" href="../../docs/">中文</a>
+    </nav>
+  </div>
+</header>
+<div class="docs-shell container">
+  <button class="sb-toggle" aria-label="menu">☰ Docs</button>
+  <nav class="docs-sidebar"><div class="sb-head">Notion Flow Docs</div><ul class="sb-list"><li><a class="sb-link" href="./index.html">Preface</a></li><li class="sb-group"><a class="sb-link sb-cat" href="./basic/index.html">Basic</a><ul class="sb-sub"><li><a class="sb-link" href="./basic/toc.html">Table of Contents</a></li><li><a class="sb-link" href="./basic/shortcuts.html">Quick Operations</a></li></ul></li><li class="sb-group"><a class="sb-link sb-cat" href="./advanced/index.html">Advanced</a><ul class="sb-sub"><li class="sb-group"><a class="sb-link sb-cat" href="./advanced/publishing/index.html">Publish to Github</a><ul class="sb-sub"><li><a class="sb-link" href="./advanced/publishing/workflow.html">Overall Process</a></li><li class="sb-group"><a class="sb-link sb-cat" href="./advanced/publishing/before-starting/index.html">Before starting</a><ul class="sb-sub"><li><a class="sb-link" href="./advanced/publishing/before-starting/notion.html">Notion Configuration</a></li><li><a class="sb-link" href="./advanced/publishing/before-starting/github.html">Github Configuration</a></li><li class="sb-group"><a class="sb-link sb-cat" href="./advanced/publishing/before-starting/oss/index.html">Image Processing</a><ul class="sb-sub"><li><a class="sb-link" href="./advanced/publishing/before-starting/oss/tencentcloud.html">Tencent Cloud COS</a></li><li><a class="sb-link" href="./advanced/publishing/before-starting/oss/alicloud.html">Alibaba Cloud OSS</a></li><li><a class="sb-link" href="./advanced/publishing/before-starting/oss/aws.html">AWS S3</a></li><li><a class="sb-link" href="./advanced/publishing/before-starting/oss/cdn.html">CDN</a></li></ul></li></ul></li><li><a class="sb-link" href="./advanced/publishing/plugin-configuration.html">Configuration of Plugins</a></li><li><a class="sb-link" href="./advanced/publishing/module-conversion.html">Module Conversion</a></li></ul></li><li class="sb-group"><a class="sb-link sb-cat" href="./advanced/ai/index.html">AI</a><ul class="sb-sub"><li><a class="sb-link" href="./advanced/ai/before-starting.html">WIP</a></li></ul></li><li class="sb-group"><a class="sb-link sb-cat" href="./advanced/plugin/index.html">Plugins</a><ul class="sb-sub"><li><a class="sb-link" href="./advanced/plugin/before-starting.html">WIP</a></li></ul></li></ul></li><li><a class="sb-link" href="./faq.html">F&amp;Q</a></li><li><a class="sb-link active" href="./about.html">About</a></li></ul></nav>
+  <main class="docs-main">
+    <article class="doc-article">
+      <h1 class="doc-h1">About</h1>
+      <h2 id="motivation-for-creating">Motivation for creating</h2>
+<p>I have the habit of writing blogs, and at the beginning, as mentioned in the preface of this tutorial, it was very troublesome to write. During this process, I looked for tools that could simplify the process. At that time, Craft launched the Extension feature, so I wrote a Craft plugin for release and iterated on it for several versions, including but not limited to:</p>
+<ol>
+<li>Github Action build + OSS upload image, later found that the service call to the domestic OSS interface in Github Action always timed out, so switched to local.</li>
+<li>Local build + OSS upload image, later found that local build required Apple Script, so I wrote an Xhelper.app to accept commands from Craft Extension.</li>
+<li>Later, Craft officially no longer maintains Extension, and because of the existence of Xhelper.app's Apple Script, it also caused the blog publishing process to be unable to be shared with everyone and unable to run on non-Mac platforms, so I then switched to Notion, and after some research, found that the Notion database suited me!</li>
+</ol>
+<p>Blogs in the process:</p>
+<ul>
+<li><a href="https://www.xheldon.com/tech/the-using-of-github-pages.html">Free use of private repositories to publish GitHub Pages</a></li>
+<li><a href="https://www.xheldon.com/tech/use-craft-extension-to-write-blog.html">This article is sent through Craft Extension</a></li>
+<li><a href="https://www.xheldon.com/tech/my-blog-ci.html">My Blog Automation Process</a></li>
+<li><a href="https://www.xheldon.com/tech/craft-markdown-api-test.html">The Craft Markdown and The Github Markdown</a></li>
+<li><a href="https://www.xheldon.com/tech/my-blog-ci-in-2022.html">My Blog Automation Process in 2022</a></li>
+<li><a href="https://www.xheldon.com/tech/applescript-simple-use.html">AppleScript First Experience</a></li>
+<li><a href="https://www.xheldon.com/tech/optimize-of-my-blog-2.html">Optimization of My Blog Automation Process - Second Round</a></li>
+<li><a href="https://www.xheldon.com/tech/workflow-of-blog-publish-base-of-craft.html">Video: Introduction to the workflow of blog publishing based on Craft plugin</a></li>
+</ul>
+<h2 id="about-the-author">About the author</h2>
+<ul>
+<li><a href="https://www.xheldon.com">Personal blog</a> or <a href="https://www.xheldon.cn">Personal blog - China</a></li>
+<li><a href="https://github.com/Xheldon">Github</a></li>
+<li><a href="https://twitter.com/_Xheldon">Twitter</a></li>
+</ul>
+<h2 id="contact">Contact</h2>
+<ul>
+<li>Email: <code>c1006044256[at]gmail.com</code></li>
+<li>Telegram: <code>@XheldonCao</code></li>
+</ul>
+
+    </article>
+    <div class="pager"><a class="pager-prev" href="./faq.html"><span>← Previous</span><b>F&amp;Q</b></a><span></span></div>
+  </main>
+</div>
+<footer class="footer"><div class="container">
+    <div class="copyright">© <span id="y">2026</span> Xheldon · Notion Flow</div>
+  </div></footer>
+  <script>document.getElementById('y').textContent=new Date().getFullYear();
+  // 移动端侧边栏
+  var t=document.querySelector('.sb-toggle');if(t){t.addEventListener('click',function(){document.querySelector('.docs-sidebar').classList.toggle('open')})}
+  </script>
+</body>
+</html>

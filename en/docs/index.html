@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Preface · Notion Flow Docs</title>
+<link rel="icon" href="../../assets/favicon.ico" />
+<link rel="stylesheet" href="../../assets/styles.css" />
+<link rel="stylesheet" href="../../assets/docs.css" />
+</head>
+<body class="docs-body">
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="../../en/index.html"><img src="../../assets/icon.png" alt="" /><span>Notion Flow</span></a>
+    <nav class="nav-links">
+      <a href="../../en/index.html#features">Features</a>
+      <a href="./">Docs</a>
+      <a href="https://github.com/Xheldon/Notion-Flow-Prod/discussions" target="_blank" rel="noopener">Feedback</a>
+      <a class="lang" href="../../docs/">中文</a>
+    </nav>
+  </div>
+</header>
+<div class="docs-shell container">
+  <button class="sb-toggle" aria-label="menu">☰ Docs</button>
+  <nav class="docs-sidebar"><div class="sb-head">Notion Flow Docs</div><ul class="sb-list"><li><a class="sb-link active" href="./index.html">Preface</a></li><li class="sb-group"><a class="sb-link sb-cat" href="./basic/index.html">Basic</a><ul class="sb-sub"><li><a class="sb-link" href="./basic/toc.html">Table of Contents</a></li><li><a class="sb-link" href="./basic/shortcuts.html">Quick Operations</a></li></ul></li><li class="sb-group"><a class="sb-link sb-cat" href="./advanced/index.html">Advanced</a><ul class="sb-sub"><li class="sb-group"><a class="sb-link sb-cat" href="./advanced/publishing/index.html">Publish to Github</a><ul class="sb-sub"><li><a class="sb-link" href="./advanced/publishing/workflow.html">Overall Process</a></li><li class="sb-group"><a class="sb-link sb-cat" href="./advanced/publishing/before-starting/index.html">Before starting</a><ul class="sb-sub"><li><a class="sb-link" href="./advanced/publishing/before-starting/notion.html">Notion Configuration</a></li><li><a class="sb-link" href="./advanced/publishing/before-starting/github.html">Github Configuration</a></li><li class="sb-group"><a class="sb-link sb-cat" href="./advanced/publishing/before-starting/oss/index.html">Image Processing</a><ul class="sb-sub"><li><a class="sb-link" href="./advanced/publishing/before-starting/oss/tencentcloud.html">Tencent Cloud COS</a></li><li><a class="sb-link" href="./advanced/publishing/before-starting/oss/alicloud.html">Alibaba Cloud OSS</a></li><li><a class="sb-link" href="./advanced/publishing/before-starting/oss/aws.html">AWS S3</a></li><li><a class="sb-link" href="./advanced/publishing/before-starting/oss/cdn.html">CDN</a></li></ul></li></ul></li><li><a class="sb-link" href="./advanced/publishing/plugin-configuration.html">Configuration of Plugins</a></li><li><a class="sb-link" href="./advanced/publishing/module-conversion.html">Module Conversion</a></li></ul></li><li class="sb-group"><a class="sb-link sb-cat" href="./advanced/ai/index.html">AI</a><ul class="sb-sub"><li><a class="sb-link" href="./advanced/ai/before-starting.html">WIP</a></li></ul></li><li class="sb-group"><a class="sb-link sb-cat" href="./advanced/plugin/index.html">Plugins</a><ul class="sb-sub"><li><a class="sb-link" href="./advanced/plugin/before-starting.html">WIP</a></li></ul></li></ul></li><li><a class="sb-link" href="./faq.html">F&amp;Q</a></li><li><a class="sb-link" href="./about.html">About</a></li></ul></nav>
+  <main class="docs-main">
+    <article class="doc-article">
+      <h1 class="doc-h1">Preface</h1>
+      <h2 id="what-is-notion-flow">What is Notion Flow?</h2>
+<p>Notion Flow is a browser extension suitable for browsers based on the Chromium project, like Chrome and Edge.</p>
+<h2 id="what-problem-does-notion-flow-solve">What problem does Notion Flow solve?</h2>
+<p>The goal in building the Notion Flow extension is to <strong>simplify the blogging process based on Github</strong>.</p>
+<p>Typically, if your blogging system is built on Github, such as Jekyll, Vitepress, Hexo, etc., each time you want to write a blog post, you need to follow these steps:</p>
+<ol>
+<li>Open a text editor like VSCode on your desktop.</li>
+<li>Open the blog project directory.</li>
+<li>Create a new Markdown file in the corresponding blog directory (e.g., the <code>_post</code> directory for Jekyll) to start writing.</li>
+<li>After finishing the writing, use Git commands or related clients to Push to the Github repository.</li>
+</ol>
+<p>Once done, your blog will be updated. During this process, you have to manually handle links, Front Matter, image references, Markdown format, and so on, which can be quite cumbersome.</p>
+<p>However, Notion is a great product that solves the difficulties in the article creation process. It is built with Electron and is available on both desktop (Windows, Mac, Linux) and mobile (Android, iOS) platforms, allowing you to create content anytime, anywhere.</p>
+<p><strong>Therefore, I combined these two processes and built the Notion Flow browser extension.</strong></p>
+<p>Notion Flow, as the name suggests, is a product built around Notion, allowing your Notion content to 'flow' into your Github repository. Some basic functions of the plugin will help you improve your writing efficiency in Notion, such as displaying page hierarchical titles and jumping to the top of the page. Its publishing feature, after some simple, one-time configurations, enables you to sync your Notion content to a specified directory in your Github repository in Markdown format with just one click, without manual handling of image references, Markdown format, etc., as Notion Flow magically takes care of it all! Moreover, for advanced users, it even supports converting Notion's non-standard Markdown blocks, like Bookmark or Callout, into your custom formats; <strong>you just need to write the conversion functions yourself</strong>!</p>
+<div class="adm adm-warning">
+<p class="adm-title">Note</p>
+<p>You cannot directly use image URLs uploaded to Notion in your blog (Notion doesn't allow this behavior, and images uploaded to Notion have an expiration time), meaning you cannot use Notion as an image hosting service. Therefore, this plugin first uploads images from Notion to an OSS service; you need to <a href="./advanced/publishing/before-starting/oss/index.html">provide the OSS address</a> and set up the <a href="./advanced/publishing/plugin-configuration.html#file-upload-path--image-path">image upload path</a>. To send files to Github, you need to provide a <a href="./advanced/publishing/before-starting/github.html">Github Personal Token</a> and set the <a href="./advanced/publishing/plugin-configuration.html#file-upload-path--image-path">upload file path</a>; it supports wildcards and only needs to be set once!</p>
+</div>
+<p>Besides, Notion Flow also supports more customized processing of your Notion content, such as the AI feature under development, which uses the OpenAI API as an alternative to the costly Notion AI; it also offers more advanced plugin functions, allowing you to be part of the 'flowing' process of Notion content, and more.</p>
+<h2 id="how-to-install">How to Install?</h2>
+<div class="adm adm-tip">
+<p class="adm-title">Tip</p>
+<p>This extension is available for Chrome version 114 and higher; the minimum version for Edge, supporting the SidePanel interface, is unclear, so it is recommended to update your browser to the latest version.</p>
+</div>
+<p>Currently, the extension is available in the Chrome and Edge stores, and you can find them here:</p>
+<p><button class="button button--success"><a href="https://chromewebstore.google.com/detail/notion-flow/mcabmofnikepdpecekdlildkmffpmokh" target="_blank" rel="noopener">Chrome</a></button>
+<button class="button button--success"><a href="https://microsoftedge.microsoft.com/addons/detail/notion-flow/pppmbeffejpbfgdmhmgmlppefaeaimfh">Edge</a></button></p>
+<h2 id="how-to-use">How to Use?</h2>
+<div class='_iframe'>
+    <div class='_iframe'>
+        <iframe src="https://www.youtube.com/embed/aPitTcsruhM?si=sGRj6iYs7UhNK2Bx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+</div>
+<h3 id="enable">Enable</h3>
+<div class="adm adm-tip">
+<p class="adm-title">Tip</p>
+<p>The plugin is designed to be used only on Notion pages (<code>*.notion.site</code> and <code>www.notion.so</code>) and will be disabled on other pages.</p>
+</div>
+<p>On a Notion page, click the plugin icon to enable the plugin. You can see the plugin’s user interface in the sidebar.</p>
+<p><img src="../../assets/docs-img/docs/toc-3.gif" alt="Image"></p>
+<h3 id="settings">Settings</h3>
+<p>After installing the plugin, the plugin settings page will automatically open (you can also open this page later by right-clicking on the plugin icon in the upper right corner of the browser and selecting 'Options'). All plugin settings are done here.</p>
+<h2 id="support-my-development-work">Support My Development Work!</h2>
+<p>If you find Notion Flow helpful, please consider supporting my development work; any amount is greatly appreciated!</p>
+<p>Paypal: <a href="https://paypal.me/xheldoncao">Send me Money</a></p>
+<hr>
+<p>Wechat:</p>
+<img src="../../assets/docs-img/wechat.JPG" style="max-width:50%" >
+<hr>
+<p>Alipay:</p>
+<img src="../../assets/docs-img/ali.png" style="max-width:50%" >
+    </article>
+    <div class="pager"><span></span><a class="pager-next" href="./basic/toc.html"><span>Next →</span><b>Table of Contents</b></a></div>
+  </main>
+</div>
+<footer class="footer"><div class="container">
+    <div class="copyright">© <span id="y">2026</span> Xheldon · Notion Flow</div>
+  </div></footer>
+  <script>document.getElementById('y').textContent=new Date().getFullYear();
+  // 移动端侧边栏
+  var t=document.querySelector('.sb-toggle');if(t){t.addEventListener('click',function(){document.querySelector('.docs-sidebar').classList.toggle('open')})}
+  </script>
+</body>
+</html>
