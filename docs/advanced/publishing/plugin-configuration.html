@@ -28,7 +28,7 @@
       <h1 class="doc-h1">配置插件</h1>
       <div class="adm adm-tip">
 <p class="adm-title">提示</p>
-<p>随着插件的版本更新，后续配置界面可能发生变化，但相关配置项名称不会变动，所以请以实际界面为准。</p>
+<p>随着插件的版本更新，配置界面可能发生变化（如 0.4.5 起，设置页改为左侧分区导航：概览 / Notion / GitHub / 图片转存 / 目录&amp;界面 / 高级 / 关于，并新增「设置向导」与「测试连接」一键校验），但相关配置项的名称与含义不会变动。本页截图仅供示意，请以实际界面为准。</p>
 </div>
 <h2 id="notion-配置">Notion 配置</h2>
 <p>Notion Flow 使用 Notion API 来读取 Notion Pages 内容，其中需要用到 <a href="https://developers.notion.com/docs/authorization#internal-integration-auth-flow-set-up">Notion Integration Token</a>。</p>
@@ -72,7 +72,7 @@ date: 2024-01-11
 <li>name: my-article-name（值因文章名不同而不同，唯一）</li>
 </ul>
 <p>因此我在这里填写上传文件路径是：<code>_posts/{{category}}/{{YYYY}}/{{YYYY}}-{{MM}}-{{DD}}-{{name}}.md</code>（注意要带格式，因为你上传到 Github 的文件也支持 <code>.html</code>），经过 Notion Flow 处理后就是 <code>_posts/life/2024/2024-01-11-my-article-name.md</code>。</p>
-<p>而我填写的图片路径是：<code>img/in-post/{{YYYY}}/{{name}}</code>，处理后的真实地址是 <code>img/in-post/2024/my-article-name/29c1c887-e773-40b5-9ea1-fb8c3cc703dd.webp</code>。</p>
+<p>而我填写的图片路径是：<code>img/in-post/{{YYYY}}/{{name}}</code>，处理后的真实地址是 <code>img/in-post/2024/my-article-name/29c1c887-e773-40b5-9ea1-fb8c3cc703dd.webp</code>。（自 0.4.5 起，「上传文件路径」在 GitHub 分区配置，而「图片路径」在「图片转存」里随每个转存目标各自配置。）</p>
 <div class="adm adm-tip">
 <p class="adm-title">提示</p>
 <p>注意，上传图片的时候，<code>webp</code> 是默认使用的图片格式，除了 <code>gif</code>、<code>svg</code>、<code>mp4</code>、<code>webm</code>、<code>ogg</code> 这几种媒体格式外，其他的格式如 <code>png</code>、<code>jpg</code>、<code>jpeg</code> 等，都会被转成 webp。</p>
@@ -82,7 +82,7 @@ date: 2024-01-11
 <p class="adm-title">注意</p>
 <p>如果未配置 OSS，则图片等资源将会被忽略。</p>
 </div>
-<p>你可以从三种不同的 OSS 服务提供商中选择一个，将你的 OSS 信息填入其中，OSS 信息可以在 <a href="./before-starting/oss/index.html">这里</a> 查看获取步骤。按照对应的名称填入即可：</p>
+<p>自 0.4.5 起，图片转存支持配置一个「主存储」与任意多个「镜像」：发布时图片会并行上传到所有目标，其中「主存储」的 CDN 地址会写入文章，镜像仅作备份（镜像上传失败不影响发布）。可选服务商有腾讯云 COS、阿里云 OSS、AWS S3，以及自建（兼容 S3 API，如 Cloudflare R2、MinIO）。每个目标各自填写凭证、Bucket、Region、CDN 地址与图片路径，OSS 信息的获取步骤见 <a href="./before-starting/oss/index.html">这里</a>。按照对应的名称填入即可：</p>
 <p><img src="../../../assets/docs-img/docs/config-3.png" alt="Image"></p>
 <div class="adm adm-tip">
 <p class="adm-title">提示</p>
@@ -93,7 +93,7 @@ date: 2024-01-11
 <p class="adm-title">注意</p>
 <p>如果未配置 CDN 路径，则图片等资源将会被忽略。</p>
 </div>
-<p>这里设置 CDN 地址，在将 Notion 图片上传到 OSS 服务后，Notion Flow 会使用该地址拼接成图片完整地址后，再将地址写入到 Markdown 中。如我这里的配置就是 <code>http://static.xheldon.cn</code>。</p>
+<p>这里设置 CDN 地址，在将 Notion 图片上传到 OSS 服务后，Notion Flow 会使用该地址拼接成图片完整地址后，再将地址写入到 Markdown 中。如我这里的配置就是 <code>http://static.xheldon.cn</code>。（自 0.4.5 起，CDN 地址随每个转存目标各自配置；写入文章的是「主存储」的 CDN 地址。）</p>
 <h2 id="自动添加-lastupdatetime">自动添加 <code>lastUpdateTime</code></h2>
 <p>对于文章而言，尤其是技术文档，经常会有时效性，让读者知道距离首次发布时候的最后更新日期是一个常用的功能，因此 Notion Flow 支持自动添加 <code>lastUpdateTime</code> 字段，你只需要打开这个开关，每次博客发布 Notion Flow 都会在 Front Matter 中添加 <code>lastUpdateTime</code> 字段。
 然后，你就可以在自己的博客中使用该字段，如我的用法：</p>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Changelog · Notion Flow</title>
+<link rel="icon" href="../assets/favicon.ico" />
+<link rel="stylesheet" href="../assets/styles.css" />
+<link rel="stylesheet" href="../assets/docs.css" />
+<style>
+.cl-wrap{max-width:760px;margin:0 auto;padding:36px 0 64px}
+.cl-wrap > h1{font-size:34px;margin:0 0 8px}
+.cl-lead{color:var(--text-soft);margin:0 0 32px}
+.cl-item{padding:0 0 8px;border:0}
+.cl-item + .cl-item{border-top:1px solid var(--border);margin-top:24px;padding-top:24px}
+.cl-head{display:flex;align-items:baseline;gap:14px}
+.cl-head h2{font-size:22px;margin:0;padding:0;border:0}
+.cl-date{color:var(--text-soft);font-size:14px}
+.cl-sec{font-size:13px;text-transform:uppercase;letter-spacing:.04em;color:var(--text-soft);margin:16px 0 6px}
+.cl-wrap ul{margin:0 0 6px;padding-left:22px}
+.cl-wrap li{margin:6px 0;line-height:1.7}
+</style>
+</head>
+<body class="docs-body">
+<header class="nav"><div class="container nav-inner">
+    <a class="brand" href="../index.html"><img src="../assets/icon.png" alt="" /><span>Notion Flow</span></a>
+    <nav class="nav-links">
+      <a href="../index.html#features">Features</a>
+      <a href="../en/docs/">Docs</a>
+      <a href="./changelog.html">Changelog</a>
+      <a href="https://github.com/Xheldon/Notion-Flow-Prod/discussions" target="_blank" rel="noopener">Feedback</a>
+      <a class="lang" href="../changelog.html">中文</a>
+    </nav>
+  </div></header>
+<main class="container"><div class="cl-wrap">
+  <h1>Changelog</h1>
+  <p class="cl-lead">Version history of Notion Flow. For full releases and downloads, see <a href="https://github.com/Xheldon/Notion-Flow-Prod/releases" target="_blank" rel="noopener">GitHub Releases</a>。</p>
+  <section class="cl-item">
+  <div class="cl-head"><h2 id="v0.4.5">0.4.5</h2><span class="cl-date">2026-06-21</span></div>
+  <h3 class="cl-sec">Features</h3><ul><li>Redesigned UI: the side panel is now a segmented “TOC / Publish”. The publish view is what-you-see-is-what-you-ship — an article card with live required-field validation (title/name/date), connection status, step progress and a compact log.</li><li>Settings page rebuilt with a left-nav section layout (Overview / Notion / GitHub / Image transfer / TOC &amp; UI / Advanced / About) plus a 4-step setup wizard.</li><li>Image transfer now supports a primary store + multiple mirrors: one image is uploaded to several object stores in parallel; the primary URL is written into the article, and mirror failures don’t block publishing.</li><li>The module-conversion plugin is now a two-pane editor: write functions on the left, inspect “block → string” on the right, with one-click Run-test, covering 13 customizable block types.</li><li>“Test connection” for Notion / GitHub in settings.</li><li>Smarter toolbar-icon behavior: open the side panel directly on Notion pages, show a guide popup elsewhere.</li><li>Added support for the notion.com domain.</li></ul>
+  <h3 class="cl-sec">Fixes</h3><ul><li>Various stability and edge-case fixes.</li></ul>
+</section>
+<section class="cl-item">
+  <div class="cl-head"><h2 id="v0.4.4">0.4.4</h2><span class="cl-date">2025-05-10</span></div>
+  <h3 class="cl-sec">Features</h3><ul><li>Correctly show the error reason when GitHub or other steps fail.</li></ul>
+  
+</section>
+<section class="cl-item">
+  <div class="cl-head"><h2 id="v0.4.3">0.4.3</h2><span class="cl-date">2024-12-21</span></div>
+  <h3 class="cl-sec">Features</h3><ul><li>Added a confirmation when module-conversion syntax is correct.</li><li>Logs no longer repeat the same module-conversion message — each module is logged once.</li></ul>
+  <h3 class="cl-sec">Fixes</h3><ul><li>Fixed the runtime log incorrectly reporting a conversion error when module-conversion settings are wrong (it should fall back to default conversion).</li></ul>
+</section>
+<section class="cl-item">
+  <div class="cl-head"><h2 id="v0.4.2">0.4.2</h2><span class="cl-date">2024-11-05</span></div>
+  <h3 class="cl-sec">Features</h3><ul><li>Show a toast when custom module-conversion code has a syntax error; the erroneous content is not persisted.</li></ul>
+  <h3 class="cl-sec">Fixes</h3><ul><li>Fixed a freeze when a custom module function throws.</li></ul>
+</section>
+<section class="cl-item">
+  <div class="cl-head"><h2 id="v0.4.1">0.4.1</h2><span class="cl-date">2024-03-31</span></div>
+  <h3 class="cl-sec">Features</h3><ul><li>Added support for self-hosted OSS compatible with the AWS S3 API, such as Cloudflare R2.</li></ul>
+  
+</section>
+<section class="cl-item">
+  <div class="cl-head"><h2 id="v0.4.0">0.4.0</h2><span class="cl-date">2024-03-21</span></div>
+  
+  <h3 class="cl-sec">Fixes</h3><ul><li>Fixed links not converting correctly in rich text.</li><li>Fixed indentation when converting Notion Page Properties to YAML so they’re recognized as Front Matter.</li></ul>
+</section>
+<section class="cl-item">
+  <div class="cl-head"><h2 id="v0.3.0">0.3.0</h2><span class="cl-date">2024-03-17</span></div>
+  <h3 class="cl-sec">Features</h3><ul><li>Happy birthday, Notion Flow!</li></ul>
+  
+</section>
+</div></main>
+<footer class="footer"><div class="container"><div class="copyright">© <span id="y">2026</span> Xheldon · Notion Flow</div></div></footer>
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>

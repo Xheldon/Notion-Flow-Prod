@@ -28,7 +28,7 @@
       <h1 class="doc-h1">Configuration of Plugins</h1>
       <div class="adm adm-tip">
 <p class="adm-title">Tip</p>
-<p>As the plugin versions are updated, the configuration interface may change in the future, but the related configuration item names will not change, so please refer to the actual interface.</p>
+<p>As the plugin versions are updated, the configuration interface may change (e.g. since 0.4.5 the settings page uses a left-nav section layout: Overview / Notion / GitHub / Image transfer / TOC &amp; UI / Advanced / About, with a new &quot;Setup wizard&quot; and one-click &quot;Test connection&quot;), but the names and meanings of the configuration items will not change. The screenshots on this page are illustrative; please refer to the actual interface.</p>
 </div>
 <h2 id="notion-configuration">Notion Configuration</h2>
 <p>Notion Flow uses the Notion API to read the content of Notion Pages, which requires the use of a <a href="https://developers.notion.com/docs/authorization#internal-integration-auth-flow-set-up">Notion Integration Token</a>.</p>
@@ -82,7 +82,7 @@ date: 2024-01-11
 <p class="adm-title">Note</p>
 <p>If the OSS is not configured, images or other resources will be ignored.</p>
 </div>
-<p>You can choose from three different OSS service providers and fill in your OSS information, which can be found in the <a href="./before-starting/oss/index.html">here</a> to obtain the steps. Enter the corresponding names:</p>
+<p>Since 0.4.5, image transfer supports one &quot;primary&quot; store plus any number of &quot;mirrors&quot;: on publish, images are uploaded to all targets in parallel; the primary's CDN URL is written into the article and mirrors are backups only (a mirror failure does not block publishing). Available providers are Tencent Cloud COS, Alibaba Cloud OSS, AWS S3, and self-hosted (S3-API compatible, e.g. Cloudflare R2, MinIO). Each target has its own credentials, Bucket, Region, CDN URL and image path; see the steps to obtain OSS info <a href="./before-starting/oss/index.html">here</a>. Enter the corresponding names:</p>
 <p><img src="../../../../assets/docs-img/docs/config-3.png" alt="Image"></p>
 <div class="adm adm-tip">
 <p class="adm-title">Tip</p>
