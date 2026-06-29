@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>隐私政策与条款 · Notion Flow</title>
-<meta name="description" content="Notion Flow 浏览器插件的隐私政策（Privacy Policy）与使用条款（Terms & Conditions）。" />
+<title>隐私政策与使用条款 · Notion Flow</title>
+<meta name="description" content="Notion Flow 浏览器扩展的隐私政策与使用条款：不收集任何数据、无遥测，凭证仅存于你的浏览器扩展存储。" />
 <link rel="icon" href="assets/favicon.ico" />
 <link rel="stylesheet" href="assets/styles.css" />
 <link rel="stylesheet" href="assets/docs.css" />
@@ -12,6 +12,7 @@
 .legal-wrap{max-width:760px;margin:0 auto;padding:36px 0 64px}
 .legal-wrap .doc-h1{margin-bottom:8px}
 .legal-lead{color:var(--text-soft);margin:0 0 28px}
+.legal-tldr{background:var(--bg-soft);border:1px solid var(--border);border-radius:12px;padding:6px 20px;margin:18px 0}
 </style>
 </head>
 <body class="docs-body">
@@ -26,83 +27,72 @@
     </nav>
   </div></header>
 <main class="container"><article class="doc-article legal-wrap">
-  <h1 class="doc-h1">Privacy Policy &amp; Terms &amp; Conditions</h1>
-  <p class="legal-lead">生效日期 / Effective date: 2024-01-11 · 本政策以英文提供 / Provided in English.</p>
+  <h1 class="doc-h1">隐私政策与使用条款</h1>
+  <p class="legal-lead">最后更新：2026-06-29</p>
 
-  <h2>Privacy Policy</h2>
-  <p>Xheldon built the Notion flow app as a Free app. This SERVICE is provided by Xheldon at no cost and is intended for use as is.</p>
-  <p>This page is used to inform visitors regarding my policies with the collection, use, and disclosure of Personal Information if anyone decided to use my Service.</p>
-  <p>If you choose to use my Service, then you agree to the collection and use of information in relation to this policy. The Personal Information that I collect is used for providing and improving the Service. I will not use or share your information with anyone except as described in this Privacy Policy.</p>
-  <p>The terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, which are accessible at Notion flow unless otherwise defined in this Privacy Policy.</p>
+  <h2>隐私政策</h2>
+  <p>Notion Flow（下称「本扩展」）是一款由 Xheldon 开发、免费提供的浏览器扩展，用于把你在 Notion 中写好的内容发布到你自己的 GitHub 仓库。本扩展的核心设计原则是<strong>「你的数据始终由你掌控」</strong>——它是纯前端、非侵入的工具，作者不运营任何用于接收你数据的服务器。</p>
 
-  <h3>Information Collection and Use</h3>
-  <p>For a better experience, while using our Service, I may require you to provide us with certain personally identifiable information. The information that I request will be retained on your device and is not collected by me in any way.</p>
-  <p>The app does use third-party services that may collect information used to identify you.</p>
-  <p>Link to the privacy policy of third-party service providers used by the app</p>
+  <div class="legal-tldr">
+    <p><strong>一句话概括：</strong></p>
+    <ul>
+      <li>作者<strong>不收集、不存储、不传输</strong>你的任何数据；本扩展不含分析、埋点、崩溃上报或任何遥测代码。</li>
+      <li>你的 Token、密钥与设置只保存在你浏览器的扩展存储中，绝不发送给我们。</li>
+      <li>本扩展仅在你主动操作时，用你提供的凭证从你的浏览器<strong>直接</strong>与你所配置的服务（Notion、GitHub、对象存储）通信。</li>
+    </ul>
+  </div>
+
+  <h3>我们收集什么</h3>
+  <p>不收集任何信息。本扩展不包含任何分析、统计、崩溃上报或遥测代码，<strong>不会</strong>收集你的 IP 地址、设备信息、使用日志或任何个人身份信息，也没有任何用于接收这些信息的服务器。文档站 <code>notion-flow.xheldon.com</code> 上只有帮助文档与说明页面，是你点击链接后在浏览器中打开的普通网页；本扩展不会向该域名发送任何数据。</p>
+
+  <h3>数据存储</h3>
+  <p>为了正常工作，本扩展会在本地保存以下内容：你的 Notion 集成 Token、GitHub Token、对象存储（腾讯云 COS / 阿里云 OSS / AWS S3 / Cloudflare R2 等）的访问密钥，以及你的发布与界面设置。</p>
+  <p>这些数据通过浏览器的扩展存储接口（<code>chrome.storage.sync</code>）保存。它们保留在你的浏览器中；如果你开启了浏览器账号同步（如 Chrome / Edge 的同步功能），浏览器厂商会在你登录的设备之间同步这些数据。无论哪种情况，它们都<strong>不会</strong>被发送给作者。你可以随时在扩展的设置页清除这些数据，或卸载扩展以删除全部本地数据。</p>
+
+  <h3>数据如何流动（第三方服务）</h3>
+  <p>当你使用发布功能时，本扩展会用<strong>你自己提供的凭证</strong>，从你的浏览器<strong>直接</strong>与下列服务通信，全程不经过作者的任何服务器：</p>
   <ul>
-    <li><a href="https://www.google.com/policies/privacy/" target="_blank" rel="noopener">Google Play Services</a></li>
-    <li><a href="https://policies.google.com/privacy?hl=zh-CN" target="_blank" rel="noopener">Google Privacy</a></li>
+    <li><strong>Notion API</strong>（<code>api.notion.com</code>）：读取你选择发布的页面内容与属性。</li>
+    <li><strong>GitHub API</strong>（<code>api.github.com</code>）：将生成的 Markdown 提交到你指定的仓库。</li>
+    <li><strong>你所配置的对象存储 / CDN</strong>（腾讯云 COS、阿里云 OSS、AWS S3、Cloudflare R2 或兼容 S3 接口的自建服务）：转存页面中的图片与视频。</li>
   </ul>
+  <p>这些都是由你选择、并用你自己的账号与密钥连接的第三方服务。相关数据从你的浏览器直接发送给它们，它们各自的隐私政策适用于相应数据，作者无法访问也不承担其处理责任。</p>
 
-  <h3>Log Data</h3>
-  <p>I want to inform you that whenever you use my Service, in a case of an error in the app I collect data and information (through third-party products) on your phone called Log Data. This Log Data may include information such as your device Internet Protocol (“IP”) address, device name, operating system version, the configuration of the app when utilizing my Service, the time and date of your use of the Service, and other statistics.</p>
+  <h3>可选的 AIGC 功能</h3>
+  <p>AIGC 是一项<strong>可选、默认关闭</strong>且仍在开发中的功能。如果你选择启用，需要自行提供 OpenAI（或兼容服务）的 API Key；相关文本会用你的 Key 直接发送给该 AI 服务，受其隐私政策约束。作者不参与、也不会接收其中的任何数据。</p>
 
-  <h3>Cookies</h3>
-  <p>Cookies are files with a small amount of data that are commonly used as anonymous unique identifiers. These are sent to your browser from the websites that you visit and are stored on your device's internal memory.</p>
-  <p>This Service does not use these “cookies” explicitly. However, the app may use third-party code and libraries that use “cookies” to collect information and improve their services. You have the option to either accept or refuse these cookies and know when a cookie is being sent to your device. If you choose to refuse our cookies, you may not be able to use some portions of this Service.</p>
-
-  <h3>Service Providers</h3>
-  <p>I may employ third-party companies and individuals due to the following reasons:</p>
+  <h3>所需权限及用途</h3>
   <ul>
-    <li>To facilitate our Service;</li>
-    <li>To provide the Service on our behalf;</li>
-    <li>To perform Service-related services; or</li>
-    <li>To assist us in analyzing how our Service is used.</li>
+    <li><strong>网站访问权限</strong>：用于在 Notion 页面中读取目录结构，并直接访问 Notion、GitHub 以及你所配置的对象存储等接口。</li>
+    <li><strong>通知</strong>：用于显示发布进度与结果的本地通知。</li>
+    <li><strong>存储</strong>：用于保存上述设置与凭证。</li>
   </ul>
-  <p>I want to inform users of this Service that these third parties have access to their Personal Information. The reason is to perform the tasks assigned to them on our behalf. However, they are obligated not to disclose or use the information for any other purpose.</p>
+  <p>本扩展不会在与上述功能无关的网站上读取或修改你的数据。</p>
 
-  <h3>Security</h3>
-  <p>I value your trust in providing us your Personal Information, thus we are striving to use commercially acceptable means of protecting it. But remember that no method of transmission over the internet, or method of electronic storage is 100% secure and reliable, and I cannot guarantee its absolute security.</p>
+  <h3>儿童隐私</h3>
+  <p>本扩展不面向 13 岁以下儿童，也不会有意收集任何儿童的个人信息（实际上，本扩展不收集任何人的个人信息）。</p>
 
-  <h3>Links to Other Sites</h3>
-  <p>This Service may contain links to other sites. If you click on a third-party link, you will be directed to that site. Note that these external sites are not operated by me. Therefore, I strongly advise you to review the Privacy Policy of these websites. I have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party sites or services.</p>
+  <h3>政策变更</h3>
+  <p>我们可能不时更新本隐私政策。任何变更都会发布在本页面，并同步更新顶部的「最后更新」日期。建议你定期查看本页。</p>
 
-  <h3>Children's Privacy</h3>
-  <p>These Services do not address anyone under the age of 13. I do not knowingly collect personally identifiable information from children under 13 years of age. In the case I discover that a child under 13 has provided me with personal information, I immediately delete this from our servers. If you are a parent or guardian and you are aware that your child has provided us with personal information, please contact me so that I will be able to do the necessary actions.</p>
-
-  <h3>Changes to This Privacy Policy</h3>
-  <p>I may update our Privacy Policy from time to time. Thus, you are advised to review this page periodically for any changes. I will notify you of any changes by posting the new Privacy Policy on this page.</p>
-  <p>This policy is effective as of 2024-01-11</p>
-
-  <h3>Contact Us</h3>
-  <p>If you have any questions or suggestions about my Privacy Policy, do not hesitate to contact me at <a href="mailto:c1006044256@gmail.com">c1006044256@gmail.com</a>.</p>
-  <p>This privacy policy page was created at <a href="https://privacypolicytemplate.net/" target="_blank" rel="noopener">privacypolicytemplate.net</a> and modified/generated by <a href="https://app-privacy-policy-generator.nisrulz.com/" target="_blank" rel="noopener">App Privacy Policy Generator</a></p>
+  <h3>联系我们</h3>
+  <p>如对本隐私政策有任何疑问或建议，欢迎通过邮件 <a href="mailto:c1006044256@gmail.com">c1006044256@gmail.com</a>，或在 <a href="https://github.com/Xheldon/Notion-Flow-Prod/discussions" target="_blank" rel="noopener">GitHub 讨论区</a> 联系作者。</p>
 
   <hr />
 
-  <h2>Terms &amp; Conditions</h2>
-  <p>By downloading or using the app, these terms will automatically apply to you – you should make sure therefore that you read them carefully before using the app. You're not allowed to copy or modify the app, any part of the app, or our trademarks in any way. You're not allowed to attempt to extract the source code of the app, and you also shouldn't try to translate the app into other languages or make derivative versions. The app itself, and all the trademarks, copyright, database rights, and other intellectual property rights related to it, still belong to Xheldon.</p>
-  <p>Xheldon is committed to ensuring that the app is as useful and efficient as possible. For that reason, we reserve the right to make changes to the app or to charge for its services, at any time and for any reason. We will never charge you for the app or its services without making it very clear to you exactly what you're paying for.</p>
-  <p>The Notion flow app stores and processes personal data that you have provided to us, to provide my Service. It's your responsibility to keep your phone and access to the app secure. We therefore recommend that you do not jailbreak or root your phone, which is the process of removing software restrictions and limitations imposed by the official operating system of your device. It could make your phone vulnerable to malware/viruses/malicious programs, compromise your phone's security features and it could mean that the Notion flow app won't work properly or at all.</p>
-  <p>The app does use third-party services that declare their Terms and Conditions.</p>
-  <p>Link to Terms and Conditions of third-party service providers used by the app</p>
+  <h2>使用条款</h2>
+  <p>下载或使用本扩展，即表示你同意以下条款，请在使用前仔细阅读。</p>
   <ul>
-    <li><a href="https://policies.google.com/terms" target="_blank" rel="noopener">Google Play Services</a></li>
-    <li><a href="https://policies.google.com/privacy?hl=zh-CN" target="_blank" rel="noopener">Google Privacy</a></li>
+    <li>本扩展按<strong>「现状」（as-is）免费提供</strong>，不附带任何明示或默示的担保。在适用法律允许的最大范围内，作者不对因使用或无法使用本扩展而导致的任何直接或间接损失承担责任。</li>
+    <li>你需<strong>自行妥善保管</strong>你的 Notion Token、GitHub Token 与对象存储密钥，并建议仅授予完成发布所需的最小权限。你需对在本扩展中配置的凭证、以及由此产生的操作（例如向你的仓库或对象存储写入内容）负责。</li>
+    <li>本扩展与 Notion、GitHub 及各对象存储服务商<strong>没有任何隶属、合作或背书关系</strong>。使用这些服务还需遵守它们各自的服务条款。</li>
+    <li>本扩展的名称、代码及相关知识产权归作者所有。请勿将本扩展用于任何非法用途。</li>
+    <li>作者可能随时更新、修改或停止提供本扩展（及其功能），恕不另行通知。</li>
+    <li>我们可能不时更新本使用条款，更新会发布在本页面。继续使用本扩展即表示你接受更新后的条款。</li>
   </ul>
-  <p>You should be aware that there are certain things that Xheldon will not take responsibility for. Certain functions of the app will require the app to have an active internet connection. The connection can be Wi-Fi or provided by your mobile network provider, but Xheldon cannot take responsibility for the app not working at full functionality if you don't have access to Wi-Fi, and you don't have any of your data allowance left.</p>
-  <p>If you're using the app outside of an area with Wi-Fi, you should remember that the terms of the agreement with your mobile network provider will still apply. As a result, you may be charged by your mobile provider for the cost of data for the duration of the connection while accessing the app, or other third-party charges. In using the app, you're accepting responsibility for any such charges, including roaming data charges if you use the app outside of your home territory (i.e. region or country) without turning off data roaming. If you are not the bill payer for the device on which you're using the app, please be aware that we assume that you have received permission from the bill payer for using the app.</p>
-  <p>Along the same lines, Xheldon cannot always take responsibility for the way you use the app i.e. You need to make sure that your device stays charged – if it runs out of battery and you can't turn it on to avail the Service, Xheldon cannot accept responsibility.</p>
-  <p>With respect to Xheldon's responsibility for your use of the app, when you're using the app, it's important to bear in mind that although we endeavor to ensure that it is updated and correct at all times, we do rely on third parties to provide information to us so that we can make it available to you. Xheldon accepts no liability for any loss, direct or indirect, you experience as a result of relying wholly on this functionality of the app.</p>
-  <p>At some point, we may wish to update the app. The app is currently available on iOS – the requirements for the system(and for any additional systems we decide to extend the availability of the app to) may change, and you'll need to download the updates if you want to keep using the app. Xheldon does not promise that it will always update the app so that it is relevant to you and/or works with the iOS version that you have installed on your device. However, you promise to always accept updates to the application when offered to you, We may also wish to stop providing the app, and may terminate use of it at any time without giving notice of termination to you. Unless we tell you otherwise, upon any termination, (a) the rights and licenses granted to you in these terms will end; (b) you must stop using the app, and (if needed) delete it from your device.</p>
 
-  <h3>Changes to This Terms and Conditions</h3>
-  <p>I may update our Terms and Conditions from time to time. Thus, you are advised to review this page periodically for any changes. I will notify you of any changes by posting the new Terms and Conditions on this page.</p>
-  <p>These terms and conditions are effective as of 2024-01-11</p>
-
-  <h3>Contact Us</h3>
-  <p>If you have any questions or suggestions about my Terms and Conditions, do not hesitate to contact me at <a href="mailto:c1006044256@gmail.com">c1006044256@gmail.com</a>.</p>
-  <p>This Terms and Conditions page was generated by <a href="https://app-privacy-policy-generator.nisrulz.com/" target="_blank" rel="noopener">App Privacy Policy Generator</a></p>
+  <h3>联系我们</h3>
+  <p>如对本使用条款有任何疑问或建议，欢迎通过邮件 <a href="mailto:c1006044256@gmail.com">c1006044256@gmail.com</a> 联系作者。</p>
 </article></main>
 <footer class="footer"><div class="container"><div class="copyright">© <span id="y">2026</span> Xheldon · Notion Flow</div></div></footer>
   <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
