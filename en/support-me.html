@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Support Me · Notion Flow</title>
+<meta name="description" content="Support the development of Notion Flow: PayPal, AFDIAN, or WeChat / Alipay QR code." />
+<link rel="icon" href="../assets/favicon.ico" />
+<link rel="stylesheet" href="../assets/styles.css" />
+<link rel="stylesheet" href="../assets/docs.css" />
+<style>
+.legal-wrap{max-width:760px;margin:0 auto;padding:36px 0 64px}
+.legal-wrap .doc-h1{margin-bottom:8px}
+.legal-lead{color:var(--text-soft);margin:0 0 28px}
+.donate-qr{display:flex;flex-wrap:wrap;gap:24px;margin:18px 0}
+.donate-qr figure{margin:0;text-align:center}
+.donate-qr img{width:220px;max-width:46vw;border-radius:10px;border:1px solid var(--border);box-shadow:var(--shadow)}
+.donate-qr figcaption{color:var(--text-soft);font-size:14px;margin-top:8px}
+/* 覆盖 .doc-article a 的链接色，保证按钮文字配色正确（否则蓝底蓝字看不见） */
+.doc-article a.btn{color:var(--text)}
+.doc-article a.btn-primary{color:var(--primary-ink)}
+</style>
+</head>
+<body class="docs-body">
+<header class="nav"><div class="container nav-inner">
+    <a class="brand" href="../index.html"><img src="../assets/icon.png" alt="" /><span>Notion Flow</span></a>
+    <nav class="nav-links">
+      <a href="../index.html#features">Features</a>
+      <a href="docs/">Docs</a>
+      <a href="changelog.html">Changelog</a>
+      <a href="https://github.com/Xheldon/Notion-Flow-Prod/discussions" target="_blank" rel="noopener">Feedback</a>
+      <a class="lang" href="../support-me.html">中文</a>
+    </nav>
+  </div></header>
+<main class="container"><article class="doc-article legal-wrap">
+  <h1 class="doc-h1">Support Me</h1>
+  <p class="legal-lead">Notion Flow is a free personal project. If it helps you, feel free to buy me a coffee ☕ — your support keeps it maintained and improving.</p>
+
+  <h3>Online payment</h3>
+  <div class="btn-row">
+    <a class="btn btn-primary" href="https://paypal.me/xheldoncao" target="_blank" rel="noopener">PayPal</a>
+    <a class="btn" href="https://afdian.com/a/xheldon" target="_blank" rel="noopener">AFDIAN</a>
+  </div>
+
+  <h3>Scan to tip</h3>
+  <div class="donate-qr">
+    <figure><img src="../assets/donate-wechat.jpg" alt="WeChat tip QR code" loading="lazy" /><figcaption>WeChat</figcaption></figure>
+    <figure><img src="../assets/donate-alipay.png" alt="Alipay QR code" loading="lazy" /><figcaption>Alipay</figcaption></figure>
+  </div>
+
+  <p style="margin-top:28px">Thanks to every supporter ❤️ For any questions or suggestions, reach me via <a href="https://github.com/Xheldon/Notion-Flow-Prod/discussions" target="_blank" rel="noopener">Discussions</a> or email <a href="mailto:c1006044256@gmail.com">c1006044256@gmail.com</a>.</p>
+</article></main>
+<footer class="footer"><div class="container"><div class="copyright">© <span id="y">2026</span> Xheldon · Notion Flow</div></div></footer>
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>
